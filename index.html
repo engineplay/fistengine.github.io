@@ -3664,7 +3664,10 @@ main{max-width:none;margin:0 0 0 232px;padding:0 36px}.store-head{padding:32px 0
   <a class="top-nav-link" href="about-us.html">ABOUT</a>
   <a class="top-nav-link" data-catalog-view="latest" href="#games">LATEST RELEASES</a>
 </nav>
-
+<a href="fistengine-download.html" class="fistengine-download-btn" aria-label="Download FistEngine">
+  <i class="fa-solid fa-download" aria-hidden="true"></i>
+  <span>FistEngine</span>
+</a>
 <div class="search-wrapper"><label class="nav-search" for="searchInput"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="searchInput" type="search" autocomplete="off" placeholder="Search the store..."></label></div>
 <a href="User-Console.html" class="archive-upload-btn" aria-label="Upload a new app or game">
     <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
@@ -3688,7 +3691,8 @@ main{max-width:none;margin:0 0 0 232px;padding:0 36px}.store-head{padding:32px 0
 
   <div class="sidebar-divider"></div>
   <p class="sidebar-caption">FistEngine</p>
-  <a class="sidebar-link" href="https://fistengine.github.io/AppExio.apk" title="Get the AppExio app"><i class="fa-brands fa-android" aria-hidden="true"></i><span>Get Old (AppExio)</span></a>
+    <a class="sidebar-link mobile-drawer-download" href="fistengine-download.html" title="Download FistEngine"><i class="fa-solid fa-download" aria-hidden="true"></i><span>FistEngine</span></a>
+
   <a class="sidebar-link" href="about-us.html" title="About AppExio"><i class="fa-regular fa-circle-question" aria-hidden="true"></i><span>About</span></a>
   <a class="sidebar-link" href="https://fistengine.github.io/contact.html" title="Contact AppExio"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
 </aside>
@@ -4084,6 +4088,139 @@ footer{background:#0d0d10!important;border-top-color:rgba(255,255,255,.1)!import
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
+/* Rectangular Steam-green FistEngine download button (left of search bar) */
+.fistengine-download-btn,
+.fistengine-download-btn:visited {
+  position: relative !important;
+  overflow: hidden !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  flex: 0 0 auto !important;
+  height: 33px !important;
+  min-height: 33px !important;
+  margin-left: auto !important;
+  margin-right: -190px !important;
+  padding: 0 14px !important;
+  border: 1px solid rgba(139, 213, 255, 0.75) !important;
+  border-radius: 4px !important;
+  background: linear-gradient(180deg, #3a94c7 0%, #1d587e 100%) !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.4px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 4px 14px rgba(26, 159, 255, 0.25) !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease !important;
+}
+
+/* Subtle glass sheen on hover */
+.fistengine-download-btn::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -120% !important;
+  width: 60% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent) !important;
+  transform: skewX(-20deg) !important;
+  transition: left 0.45s ease !important;
+  pointer-events: none !important;
+}
+
+.fistengine-download-btn:hover::after {
+  left: 160% !important;
+}
+
+.fistengine-download-btn i {
+  transition: transform 0.18s ease !important;
+}
+
+.fistengine-download-btn:hover i {
+  transform: translateY(1.5px) !important;
+}
+
+.fistengine-download-btn:hover {
+  filter: brightness(1.08) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 6px 18px rgba(102, 192, 244, 0.38) !important;
+}
+
+
+.fistengine-download-btn i,
+.fistengine-download-btn span {
+  color: #ffffff !important;
+}
+
+.fistengine-download-btn i {
+  font-size: 12px !important;
+}
+
+.fistengine-download-btn:hover {
+  filter: brightness(1.12) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Keep the search bar directly to the right of the green button on desktop */
+@media screen and (min-width: 851px) {
+  .search-wrapper,
+  .header.is-compact .search-wrapper {
+    margin-left: 0 !important;
+  }
+}
+
+/* Hide the drawer-only link on desktop */
+@media screen and (min-width: 761px) {
+  .mobile-drawer-download {
+    display: none !important;
+  }
+}
+
+/* Mobile: hide from top navbar and show green button inside slide-out menu */
+@media screen and (max-width: 760px) {
+  .header .fistengine-download-btn {
+    display: none !important;
+  }
+
+      .store-sidebar a.sidebar-link.mobile-drawer-download,
+  .store-sidebar a.sidebar-link.mobile-drawer-download:hover {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    max-width: max-content !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    margin: 4px 0 8px 12px !important;
+    padding: 0 10px !important;
+    gap: 5px !important;
+        border: 1px solid rgba(139, 213, 255, 0.75) !important;
+    border-radius: 4px !important;
+    background: linear-gradient(180deg, #3a94c7 0%, #1d587e 100%) !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 10px rgba(26, 159, 255, 0.22) !important;
+
+  }
+
+  .store-sidebar a.sidebar-link.mobile-drawer-download i {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    font-size: 10px !important;
+  }
+
+
+
+  .store-sidebar .mobile-drawer-download i,
+  .store-sidebar .mobile-drawer-download span {
+    color: #ffffff !important;
+  }
+}
+
+
 
 
 /* Full-page product details and Explore view follow the same dark palette. */
@@ -6436,6 +6573,8 @@ footer { background:#09151f !important; border-color:rgba(145,183,209,.12) !impo
     padding-right: 7px !important;
     font-size: 8px !important;
   }
+  @media screen and (min-width: 851px) and (max-width: 1100px) {
+
 }
 </style>
 
