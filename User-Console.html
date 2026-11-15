@@ -12,7 +12,7 @@
 
 <title>User Console | FistEngine</title>
     
-<meta name="description" content="AppExio - User Console page from where users can Add Applications, softwares, apps, games, mods, etc | Once the Application is added then it will not be deleted by User. For this User should remind us by contact page on FistEngine-Devs">
+<meta name="description" content="FistEngine - User Console page from where users can Add Applications, softwares, apps, games, mods, etc | Once the Application is added then it will not be deleted by User. For this User should remind us by contact page on FistEngine-Devs">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="https://fistengine.github.io/favicon.png">
@@ -612,6 +612,29 @@ border-radius: 12px;
 
     border-radius: 14px;
 
+}
+
+.header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.header-btn:hover {
+  opacity: 0.7;
+}
+
+.header-btn:active {
+  transform: scale(0.98);
 }
 
 .app-row-icon {
@@ -1386,16 +1409,16 @@ User Console
 
 <div class="header-right">
 
-<button
+<a
     class="header-btn"
-    onclick="window.open('../index.html','_blank')"
+    href="index.html"
 >
 
 <i class="fa-solid fa-globe"></i>
 
 <span>Back to Home</span>
 
-</button>
+</a>
 </div>
 
 </div>
