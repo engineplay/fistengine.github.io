@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact FistENGINE — Get in Touch</title>
+  <meta name="description" content="Contact FistENGINE with questions, suggestions, or support requests. Open the direct contact form or reach out on Instagram.">
+  <meta name="theme-color" content="#12222f">
+  <link rel="canonical" href="https://fistengine.github.io/contact.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      color-scheme: dark;
+      --bg: #080b12;
+      --surface: #101622;
+      --surface-2: #151d2b;
+      --line: rgba(180,196,230,.13);
+      --text: #f5f7ff;
+      --muted: #9aa8bf;
+      --blue: #66c0f4;
+      --blue-bright: #8bd5ff;
+      --purple: #9b7bff;
+      --green: #5ce6a0;
+      --topbar: #12222f;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 50px;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 12% -10%, rgba(91,75,183,.18), transparent 34%),
+        radial-gradient(ellipse at 95% 7%, rgba(46,125,174,.12), transparent 31%),
+        var(--bg);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    /* FistENGINE's compact, permanent top bar */
+    .header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: 50px;
+      min-height: 50px;
+      background: rgba(18,34,47,.985);
+      border-bottom: 1px solid rgba(102,192,244,.24);
+      box-shadow: 0 4px 16px rgba(0,0,0,.26);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      gap: clamp(7px, 1vw, 15px);
+      padding: 0 clamp(10px, 1.55vw, 28px);
+    }
+    .logo {
+      flex: 0 0 auto;
+      min-width: max-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.35px;
+      white-space: nowrap;
+    }
+    .logo-icon {
+      width: 29px;
+      height: 29px;
+      flex: 0 0 29px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #1c3045;
+    }
+    .logo-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .logo-word { font-size: 16px; line-height: 1; white-space: nowrap; }
+    .logo-word span, .footer-logo-word { color: var(--text); }
+    .footer-logo-word span { color: var(--blue); }
+    .top-store-nav { display: flex; flex: 0 0 auto; align-self: stretch; align-items: stretch; gap: 0; }
+    .top-nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      min-height: 50px;
+      padding: 0 clamp(5px, .65vw, 10px);
+      color: #a9c1d1;
+      font-size: clamp(8px, .68vw, 10px);
+      font-weight: 700;
+      letter-spacing: .55px;
+      white-space: nowrap;
+      transition: color .18s, background .18s;
+    }
+    .top-nav-link::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      bottom: 0;
+      left: 7px;
+      right: 7px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .18s;
+    }
+    .top-nav-link:hover, .top-nav-link.active { color: #f1f8fc; background: rgba(102,192,244,.07); }
+    .top-nav-link.active::after, .top-nav-link:hover::after { transform: scaleX(1); }
+    .search-wrapper {
+      position: relative;
+      flex: 1 1 300px;
+      width: auto;
+      min-width: 145px;
+      max-width: 410px;
+      margin: 0 0 0 auto;
+    }
+    .nav-search {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-width: 0;
+      height: 34px;
+      gap: 8px;
+      padding: 0 10px;
+      border: 1px solid rgba(102,192,244,.22);
+      border-radius: 3px;
+      background: #0b1b27;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.22);
+      cursor: text;
+    }
+    .nav-search:focus-within { border-color: rgba(102,192,244,.6); box-shadow: 0 0 0 3px rgba(102,192,244,.08); }
+    .nav-search i { flex: 0 0 auto; color: #8dcff5; font-size: 12px; }
+    .nav-search input {
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      color: #e8f3fa;
+      background: transparent;
+      font-size: 11px;
+    }
+    .nav-search input::placeholder { color: #8096a9; }
+    .archive-upload-btn {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      height: 33px;
+      min-height: 33px;
+      margin: 0;
+      padding: 0 10px;
+      gap: 6px;
+      border: 1px solid rgba(102,192,244,.25);
+      border-radius: 3px;
+      background: linear-gradient(180deg, #75c9f4, #53a5d7);
+      color: #06121b;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .55px;
+      white-space: nowrap;
+      transition: filter .18s, transform .18s;
+    }
+    .archive-upload-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .archive-upload-btn i { font-size: 12px; }
+    .mobile-menu { display: none; }
+    .mobile-drawer, .mobile-drawer-shade { display: none; }
+
+    main { width: 100%; flex: 1 0 auto; }
+    .page-shell { width: min(1320px, calc(100% - 56px)); margin: 0 auto; padding: 48px 0 72px; }
+    .contact-intro { max-width: 850px; margin: 0 auto 30px; text-align: center; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+    .eyebrow i { font-size: 12px; }
+    h1 {
+      font-size: clamp(34px, 4.1vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      font-weight: 800;
+    }
+    h1 span {
+      color: transparent;
+      background: linear-gradient(95deg, #83d4ff 5%, #a48bff 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .intro-copy { max-width: 610px; margin: 14px auto 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: stretch; gap: 20px; }
+    .contact-card {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(180,196,230,.14);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(21,29,43,.97), rgba(13,19,30,.98));
+      box-shadow: 0 20px 55px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.025);
+    }
+    .social-card { display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 3.4vw, 42px); }
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      width: 280px;
+      height: 280px;
+      right: -150px;
+      top: -170px;
+      border-radius: 50%;
+      background: rgba(83,183,255,.10);
+      filter: blur(8px);
+    }
+    .social-card::before { width: 360px; height: 360px; top: auto; bottom: -205px; right: -110px; background: rgba(155,123,255,.12); }
+    .card-top { position: relative; display: flex; align-items: center; gap: 13px; margin-bottom: 22px; }
+    .icon-wrap {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      border: 1px solid rgba(102,192,244,.22);
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(102,192,244,.16), rgba(83,183,255,.06));
+      color: var(--blue-bright);
+      font-size: 20px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .instagram-icon { color: #ffb4d7; border-color: rgba(255,119,190,.26); background: linear-gradient(145deg, rgba(255,119,190,.17), rgba(155,123,255,.1)); }
+    .card-kicker { color: #87a6bb; font-size: 9px; font-weight: 800; letter-spacing: 1.8px; }
+    h2 { position: relative; margin-bottom: 8px; font-size: clamp(21px, 2vw, 27px); line-height: 1.25; letter-spacing: -.7px; }
+    .card-copy { position: relative; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    .instagram-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 17px;
+      border: 1px solid rgba(102,192,244,.32);
+      border-radius: 5px;
+      background: linear-gradient(180deg, #77c9f3, #58a8d9);
+      color: #06121b;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .25px;
+      cursor: pointer;
+      transition: transform .18s, filter .18s, box-shadow .18s;
+    }
+    .instagram-button:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 9px 25px rgba(57,151,205,.17); }
+    .instagram-button:focus-visible, .top-nav-link:focus-visible, .archive-upload-btn:focus-visible, .mobile-menu:focus-visible { outline: 2px solid var(--blue-bright); outline-offset: 3px; }
+
+    .social-card-content { position: relative; z-index: 1; }
+    .social-card .card-top { margin-bottom: 27px; }
+    .social-card h2 { max-width: 370px; font-size: clamp(25px, 2.4vw, 32px); }
+    .social-card .card-copy { max-width: 390px; margin-bottom: 26px; font-size: 13px; }
+    .instagram-profile, .direct-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 17px;
+      border: 1px solid rgba(180,196,230,.12);
+      border-radius: 7px;
+      background: rgba(6,10,18,.42);
+    }
+    .profile-icon {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      flex: 0 0 43px;
+      border-radius: 12px;
+      color: white;
+      font-size: 20px;
+      background: linear-gradient(135deg, #7b61ff, #e44b9b 58%, #ffb052);
+      box-shadow: 0 8px 22px rgba(212,77,163,.16);
+    }
+    .direct-profile .profile-icon { background: linear-gradient(135deg, #236da3, #4ab6ed 68%, #8bd5ff); box-shadow: 0 8px 22px rgba(57,151,205,.16); }
+    .direct-card::before { top: auto; bottom: -205px; right: -110px; background: rgba(83,183,255,.13); }
+    .direct-card .instagram-button { border-color: rgba(102,192,244,.32); background: linear-gradient(100deg, #77c9f3, #58a8d9); color: #06121b; }
+    .profile-details { display: grid; min-width: 0; gap: 2px; }
+    .profile-details strong { font-size: 12px; font-weight: 800; }
+    .profile-details span { color: var(--muted); font-size: 10px; }
+    .profile-external { margin-left: auto; color: #899db4; font-size: 12px; }
+    .instagram-button { width: 100%; min-height: 45px; border-color: rgba(225,104,177,.34); background: linear-gradient(100deg, #8c6cff, #d64fa1 72%, #ec825e); color: white; }
+    .instagram-note { margin-top: 13px; color: #71839a; font-size: 10px; line-height: 1.6; text-align: center; }
+
+    footer { margin-top: 0; border-top: 1px solid rgba(180,196,230,.12); background: rgba(7,10,16,.48); }
+    .footer-inner { width: min(1560px, 100%); margin: auto; padding: 32px 34px 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 40px; }
+    .footer-logo { display: inline-flex; align-items: center; gap: 9px; font-size: 19px; font-weight: 800; letter-spacing: -.7px; white-space: nowrap; }
+    .footer-logo-icon { width: 31px; height: 31px; overflow: hidden; border-radius: 5px; background: #1c3045; }
+    .footer-logo-icon img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .footer-brand p { max-width: 370px; margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .footer-column h4 { margin-bottom: 12px; color: #e4e9f4; font-size: 11px; letter-spacing: 1px; }
+    .footer-column a { display: block; width: fit-content; margin: 9px 0; color: var(--muted); font-size: 12px; transition: color .18s, transform .18s; }
+    .footer-column a:hover { color: var(--blue-bright); transform: translateX(2px); }
+    .copyright { display: flex; justify-content: space-between; gap: 10px; margin-top: 27px; padding-top: 20px; border-top: 1px solid rgba(180,196,230,.12); color: #758198; font-size: 10px; }
+
+    @media (min-width: 1500px) {
+      .page-shell { width: min(1440px, calc(100% - 80px)); }
+      .contact-grid { grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr); gap: 24px; }
+    }
+    @media (min-width: 851px) and (max-width: 1100px) {
+      .nav { gap: 6px; padding-left: 8px; padding-right: 8px; }
+      .logo { gap: 5px; }
+      .logo-icon { width: 25px; height: 25px; flex-basis: 25px; }
+      .logo-word { font-size: 14px; }
+      .top-nav-link { padding-left: 4px; padding-right: 4px; font-size: 8px; letter-spacing: .2px; }
+      .search-wrapper { min-width: 115px; flex-basis: 170px; }
+      .archive-upload-btn { padding-left: 7px; padding-right: 7px; font-size: 8px; }
+      .page-shell { width: calc(100% - 40px); }
+    }
+    @media (max-width: 850px) {
+      body { padding-top: 60px; }
+      .header { height: 60px; min-height: 60px; }
+      .nav { height: 60px; min-height: 60px; gap: 7px; padding: 0 9px 0 45px; }
+      .logo { min-width: 0; gap: 5px; font-size: 14px; }
+      .logo-icon { width: 27px; height: 27px; flex-basis: 27px; }
+      .logo-word { font-size: 14px; }
+      .top-store-nav { display: none; }
+      .archive-upload-btn { min-height: 32px; height: 32px; padding: 0 7px; gap: 5px; font-size: 8px; letter-spacing: .45px; }
+      .archive-upload-btn i { font-size: 11px; }
+      .search-wrapper { flex: 0 0 34px; width: 34px; min-width: 34px; max-width: 34px; margin-left: auto; }
+      .nav-search { justify-content: center; width: 34px; height: 34px; gap: 0; padding: 0; border-radius: 4px; cursor: pointer; }
+      .nav-search i { font-size: 14px; }
+      .nav-search input { display: none; }
+      .header.search-expanded .logo { visibility: hidden; }
+      .header.search-expanded .search-wrapper { position: absolute; left: 45px; right: 91px; top: 12px; width: auto; min-width: 0; max-width: none; margin: 0; z-index: 4; }
+      .header.search-expanded .nav-search { justify-content: flex-start; width: 100%; height: 36px; gap: 8px; padding: 0 9px; }
+      .header.search-expanded .nav-search input { display: block; flex: 1; width: 100%; min-width: 0; color: #e8f3fa; font-size: 12px; }
+      .mobile-menu { position: fixed; z-index: 1800; top: 13px; left: 7px; display: grid; place-items: center; width: 32px; height: 34px; padding: 0; border: 1px solid rgba(102,192,244,.22); border-radius: 4px; background: #0c1b27; color: #9edcff; cursor: pointer; }
+      .mobile-drawer-shade { position: fixed; z-index: 1600; inset: 60px 0 0; display: block; background: rgba(0,0,0,.58); opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; }
+      .mobile-drawer { position: fixed; z-index: 1650; inset: 60px auto 0 0; display: flex; flex-direction: column; gap: 5px; width: min(300px, 86vw); padding: 18px 14px; border-right: 1px solid rgba(102,192,244,.19); background: #0c1520; box-shadow: 15px 0 40px rgba(0,0,0,.25); transform: translateX(-102%); visibility: hidden; transition: transform .22s, visibility .22s; }
+      .mobile-drawer a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 13px; border: 1px solid transparent; border-radius: 4px; color: #b9c9d9; font-size: 12px; font-weight: 700; }
+      .mobile-drawer a:hover, .mobile-drawer a.active { border-color: rgba(102,192,244,.15); background: rgba(102,192,244,.08); color: #fff; }
+      .mobile-drawer a i { width: 17px; color: var(--blue); text-align: center; }
+      body.menu-open .mobile-drawer { transform: translateX(0); visibility: visible; }
+      body.menu-open .mobile-drawer-shade { opacity: 1; visibility: visible; }
+      .page-shell { width: min(100% - 32px, 720px); padding: 34px 0 48px; }
+      .contact-intro { margin-bottom: 24px; }
+      h1 { font-size: clamp(32px, 7vw, 44px); letter-spacing: -1.5px; }
+      .intro-copy { margin-top: 11px; font-size: 12px; }
+      .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+      .social-card { min-height: 300px; }
+      .footer-inner { padding: 27px 20px 20px; }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-brand p { max-width: 520px; }
+      .copyright { margin-top: 22px; padding-top: 16px; }
+    }
+    @media (max-width: 480px) {
+      .page-shell { width: calc(100% - 24px); padding-top: 28px; }
+      .eyebrow { margin-bottom: 9px; font-size: 9px; letter-spacing: 1.7px; }
+      h1 { font-size: clamp(30px, 8.5vw, 38px); }
+      .intro-copy { max-width: 330px; }
+      .social-card { padding: 21px 17px; }
+      .card-top { gap: 10px; margin-bottom: 18px; }
+      .icon-wrap { width: 43px; height: 43px; flex-basis: 43px; font-size: 18px; }
+      .social-card { min-height: 0; }
+      .footer-inner { padding-left: 16px; padding-right: 16px; }
+      .footer-grid { gap: 22px 15px; }
+      .footer-column h4 { font-size: 10px; }
+      .footer-column a { font-size: 11px; }
+      .copyright { flex-direction: column; gap: 5px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="header" id="siteHeader">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="logo" aria-label="FistENGINE home">
+        <span class="logo-icon"><img src="favicon.png" alt=""></span>
+        <span class="logo-word">Fist<span>ENGINE</span></span>
+      </a>
+      <nav class="top-store-nav" aria-label="Quick links">
+        <a class="top-nav-link active" href="contact.html" aria-current="page">CONTACT</a>
+        <a class="top-nav-link" href="about-us.html">ABOUT</a>
+        <a class="top-nav-link" href="index.html#games">LATEST RELEASES</a>
+      </nav>
+      <div class="search-wrapper" id="searchWrapper">
+        <div class="nav-search" id="navSearch" role="search" aria-label="Search the FistENGINE store">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="siteSearch" type="search" autocomplete="off" placeholder="Search the store..." aria-label="Search the store">
+        </div>
+      </div>
+      <a href="user-console-jdcbuydbcduiebceuif9wbcephpppepdwejnwdicijwbedijcnwjenoi.html" class="archive-upload-btn" aria-label="Upload a new app or game">
+        <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i><span>UPLOAD</span>
+      </a>
+    </nav>
+  </header>
+
+  <button class="mobile-menu" id="mobileMenuButton" type="button" aria-label="Open navigation menu" aria-expanded="false">
+    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="mobile-drawer-shade" id="mobileDrawerShade" aria-hidden="true"></div>
+  <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation">
+    <a href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Store home</a>
+    <a href="index.html#games"><i class="fa-solid fa-clock" aria-hidden="true"></i> Latest releases</a>
+    <a href="about-us.html"><i class="fa-regular fa-circle-question" aria-hidden="true"></i> About FistENGINE</a>
+    <a class="active" href="contact.html" aria-current="page"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact</a>
+    <a href="user-console-jdcbuydbcduiebceuif9wbcephpppepdwejnwdicijwbedijcnwjenoi.html"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i> Upload</a>
+  </nav>
+
+  <main>
+    <div class="page-shell">
+      <section class="contact-intro" aria-labelledby="contactTitle">
+        <div class="eyebrow"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i> CONTACT FistENGINE</div>
+        <h1 id="contactTitle">Let's get in <span>touch.</span></h1>
+        <p class="intro-copy">Questions, feedback, or a problem with a listing? Choose whichever way is easiest for you to reach us.</p>
+      </section>
+
+      <section class="contact-grid" aria-label="Contact options">
+        <article class="contact-card social-card direct-card">
+          <div class="social-card-content">
+            <div class="card-top">
+              <div class="icon-wrap"><i class="fa-regular fa-envelope" aria-hidden="true"></i></div>
+              <div class="card-kicker">DIRECT SUPPORT</div>
+            </div>
+            <h2>Direct Contact Form</h2>
+            <p class="card-copy">Have a question, suggestion, or support request? Use our contact form to send a message to the FistENGINE team.</p>
+            <div class="instagram-profile direct-profile">
+              <div class="profile-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></div>
+              <div class="profile-details"><strong>FistENGINE Contact Form</strong><span>Send us your message online</span></div>
+              <i class="fa-solid fa-arrow-up-right-from-square profile-external" aria-hidden="true"></i>
+            </div>
+            <a class="instagram-button" href="https://form.jotform.com/262503933379059" target="_blank" rel="noopener noreferrer">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact Form <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+            <p class="instagram-note">Opens the contact form in a new tab.</p>
+          </div>
+        </article>
+
+        <article class="contact-card social-card">
+          <div class="social-card-content">
+            <div class="card-top">
+              <div class="icon-wrap instagram-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></div>
+              <div class="card-kicker">LET'S CONNECT</div>
+            </div>
+            <h2>Contact on Instagram</h2>
+            <p class="card-copy">Prefer a quick direct message? Visit our Instagram page and send the FistENGINE team a DM.</p>
+            <div class="instagram-profile">
+              <div class="profile-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></div>
+              <div class="profile-details"><strong>@appexiodev</strong><span>FistENGINE on Instagram</span></div>
+              <i class="fa-solid fa-arrow-up-right-from-square profile-external" aria-hidden="true"></i>
+            </div>
+            <a class="instagram-button" href="https://www.instagram.com/fistengine" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i> Message us on Instagram <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+            <p class="instagram-note">Opens Instagram in a new tab.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo" aria-label="FistENGINE home"><span class="footer-logo-icon"><img src="favicon.png" alt=""></span><span class="footer-logo-word">Fist<span>ENGINE</span></span></a>
+          <p>FistENGINE is a modern marketplace for discovering Android apps, PC software, games and useful tools.</p>
+        </div>
+        <div class="footer-column"><h4>EXPLORE</h4><a href="index.html#games">Library →</a></div>
+        <div class="footer-column"><h4>FistENGINE</h4><a href="about-us.html">About us</a><a href="privacy-policy.html">Privacy policy</a><a href="terms.html">Terms</a><a href="contact.html" aria-current="page">Contact Us</a></div>
+        <div class="footer-column"><h4>FOLLOW</h4><a href="https://x.com/fistengine" target="_blank" rel="noopener noreferrer">X / Twitter</a><a href="https://www.instagram.com/fistengine" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+      </div>
+      <div class="copyright"><span>© 2026 FistENGINE. All rights reserved.</span><span>Android • PC • Games</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      // The compact phone header expands search only when tapped.
+      const header = document.getElementById("siteHeader");
+      const searchWrapper = document.getElementById("searchWrapper");
+      const searchBox = document.getElementById("navSearch");
+      const searchInput = document.getElementById("siteSearch");
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const drawerShade = document.getElementById("mobileDrawerShade");
+      const drawer = document.getElementById("mobileDrawer");
+      const isMobile = () => window.matchMedia("(max-width: 850px)").matches;
+
+      function setMenu(open) {
+        document.body.classList.toggle("menu-open", open);
+        mobileMenuButton.setAttribute("aria-expanded", String(open));
+        mobileMenuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        mobileMenuButton.innerHTML = open
+          ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+          : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+      }
+      function setSearchExpanded(open) {
+        header.classList.toggle("search-expanded", open);
+        if (open) window.setTimeout(() => searchInput.focus(), 20);
+      }
+
+      searchBox.addEventListener("click", (event) => {
+        if (isMobile() && !header.classList.contains("search-expanded")) {
+          event.preventDefault();
+          setSearchExpanded(true);
+        }
+      });
+      searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          searchInput.value = "";
+          setSearchExpanded(false);
+          searchInput.blur();
+        } else if (event.key === "Enter") {
+          event.preventDefault();
+          const query = searchInput.value.trim();
+          if (query) window.location.href = `index.html?search=${encodeURIComponent(query)}#games`;
+        }
+      });
+      document.addEventListener("click", (event) => {
+        if (isMobile() && header.classList.contains("search-expanded") && !searchWrapper.contains(event.target)) {
+          setSearchExpanded(false);
+        }
+      });
+      mobileMenuButton.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+      drawerShade.addEventListener("click", () => setMenu(false));
+      drawer.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMenu(false);
+          if (header.classList.contains("search-expanded")) setSearchExpanded(false);
+        }
+      });
+      window.addEventListener("resize", () => {
+        if (!isMobile()) {
+          setMenu(false);
+          setSearchExpanded(false);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
