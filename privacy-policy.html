@@ -1,431 +1,603 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#0b0b0d" name="theme-color"/>
 <title>Privacy Policy | FistEngine</title>
-<meta content="Read the FistEngine Privacy Policy to learn how we handle information, cookies, advertising, and website usage." name="description"/>
-<link href="favicon.png" rel="icon" type="image/png"/>
+<meta content="Read the FistENGINE Privacy Policy to learn how information, cookies, advertising, and website usage may be handled." name="description"/>
+<meta content="#12222f" name="theme-color"/>
+<link href="https://fistengine.github.io/privacy-policy.html" rel="canonical"/>
+<link href="favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
 <style>
-:root {
-    color-scheme: only dark;
-    --bg: #0b0d12;
-    --surface: #12161f;
-    --surface-deep: #191e29;
-    --line: rgba(180,196,230,.12);
-    --text: #f5f7fb;
-    --muted: #9aa3b2;
-    --muted-2: #778399;
-    --accent: #8b6cff;
-    --accent-deep: #5d9cff;
-    --accent-soft: rgba(139,108,255,.12);
-    --content-width: 1080px;
-}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      color-scheme: dark;
+      --bg: #080b12;
+      --surface: #101622;
+      --surface-2: #151d2b;
+      --line: rgba(180,196,230,.13);
+      --text: #f5f7ff;
+      --muted: #9aa8bf;
+      --blue: #66c0f4;
+      --blue-bright: #8bd5ff;
+      --purple: #9b7bff;
+      --green: #5ce6a0;
+      --topbar: #12222f;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 50px;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 12% -10%, rgba(91,75,183,.18), transparent 34%),
+        radial-gradient(ellipse at 95% 7%, rgba(46,125,174,.12), transparent 31%),
+        var(--bg);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { min-width: 320px; scroll-behavior: smooth; background: var(--bg); color-scheme: dark; }
-body {
-    min-width: 320px;
-    width: 100%;
-    overflow-x: hidden;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.75;
-    color: var(--text);
-    background: radial-gradient(ellipse at 50% -18%, rgba(139,108,255,.12), transparent 44%), var(--bg);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-a { color: inherit; text-decoration: none; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+    /* FistENGINE's compact, permanent top bar */
+    .header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: 50px;
+      min-height: 50px;
+      background: rgba(18,34,47,.985);
+      border-bottom: 1px solid rgba(102,192,244,.24);
+      box-shadow: 0 4px 16px rgba(0,0,0,.26);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      gap: clamp(7px, 1vw, 15px);
+      padding: 0 clamp(10px, 1.55vw, 28px);
+    }
+    .logo {
+      flex: 0 0 auto;
+      min-width: max-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.35px;
+      white-space: nowrap;
+    }
+    .logo-icon {
+      width: 29px;
+      height: 29px;
+      flex: 0 0 29px;
+      overflow: hidden;
+      border-radius: 4px;
+      
+    }
+    .logo-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .logo-word { font-size: 16px; line-height: 1; white-space: nowrap; }
+    .logo-word span, .footer-logo-word { color: var(--text); }
+    .footer-logo-word span { color: var(--blue); }
+    .top-store-nav { display: flex; flex: 0 0 auto; align-self: stretch; align-items: stretch; gap: 0; }
+    .top-nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      min-height: 50px;
+      padding: 0 clamp(5px, .65vw, 10px);
+      color: #a9c1d1;
+      font-size: clamp(8px, .68vw, 10px);
+      font-weight: 700;
+      letter-spacing: .55px;
+      white-space: nowrap;
+      transition: color .18s, background .18s;
+    }
+    .top-nav-link::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      bottom: 0;
+      left: 7px;
+      right: 7px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .18s;
+    }
+    .top-nav-link:hover, .top-nav-link.active { color: #f1f8fc; background: rgba(102,192,244,.07); }
+    .top-nav-link.active::after, .top-nav-link:hover::after { transform: scaleX(1); }
+    .search-wrapper {
+      position: relative;
+      flex: 1 1 300px;
+      width: auto;
+      min-width: 145px;
+      max-width: 410px;
+      margin: 0 0 0 auto;
+    }
+    .nav-search {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-width: 0;
+      height: 34px;
+      gap: 8px;
+      padding: 0 10px;
+      border: 1px solid rgba(102,192,244,.22);
+      border-radius: 3px;
+      background: #0b1b27;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.22);
+      cursor: text;
+    }
+    .nav-search:focus-within { border-color: rgba(102,192,244,.6); box-shadow: 0 0 0 3px rgba(102,192,244,.08); }
+    .nav-search i { flex: 0 0 auto; color: #8dcff5; font-size: 12px; }
+    .nav-search input {
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      color: #e8f3fa;
+      background: transparent;
+      font-size: 11px;
+    }
+    .nav-search input::placeholder { color: #8096a9; }
+    .archive-upload-btn {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      height: 33px;
+      min-height: 33px;
+      margin: 0;
+      padding: 0 10px;
+      gap: 6px;
+      border: 1px solid rgba(102,192,244,.25);
+      border-radius: 3px;
+      background: linear-gradient(180deg, #75c9f4, #53a5d7);
+      color: #06121b;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .55px;
+      white-space: nowrap;
+      transition: filter .18s, transform .18s;
+    }
+    .archive-upload-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .archive-upload-btn i { font-size: 12px; }
+    .mobile-menu { display: none; }
+    .mobile-drawer, .mobile-drawer-shade { display: none; }
 
-/* Compact AppExio glass navigation */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    min-height: 66px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 10px clamp(18px, 6vw, 82px);
-    background: rgba(11,13,18,.92);
-    border-bottom: 1px solid rgba(255,255,255,.10);
-    box-shadow: 0 8px 28px rgba(0,0,0,.22);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-}
-.navbar-logo { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
-.navbar-logo img { display: block; width: 36px; height: 36px; object-fit: contain; }
-.back-home {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-height: 38px;
-    padding: 8px 15px;
-    border: 1px solid rgba(255,255,255,.13);
-    border-radius: 999px;
-    background: rgba(255,255,255,.045);
-    color: #e4e4e7;
-    font-size: 12.5px;
-    font-weight: 650;
-    line-height: 1;
-    white-space: nowrap;
-    transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
-}
-.back-home-arrow { display: inline-block; font-size: 18px; line-height: .8; transition: transform .2s ease; }
-.back-home:hover {
-    color: #c6b8ff;
-    background: rgba(139,108,255,.11);
-    border-color: rgba(139,108,255,.42);
-    transform: translateX(-2px);
-}
-.back-home:hover .back-home-arrow { transform: translateX(-2px); }
-.back-home:focus-visible { outline: 3px solid rgba(139,108,255,.35); outline-offset: 3px; }
+    main { width: 100%; flex: 1 0 auto; }
+    .page-shell { width: min(1320px, calc(100% - 56px)); margin: 0 auto; padding: 48px 0 72px; }
+    .contact-intro { max-width: 850px; margin: 0 auto 30px; text-align: center; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+    .eyebrow i { font-size: 12px; }
+    h1 {
+      font-size: clamp(34px, 4.1vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      font-weight: 800;
+    }
+    h1 span {
+      color: transparent;
+      background: linear-gradient(95deg, #83d4ff 5%, #a48bff 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .intro-copy { max-width: 610px; margin: 14px auto 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
 
-/* Compact editorial page heading */
-.hero {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    margin: 0 auto 12px;
-    padding: 22px 20px 20px;
-    text-align: center;
-    background: linear-gradient(180deg, rgba(255,255,255,.025), transparent);
-}
-.hero::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -130px;
-    left: 50%;
-    width: 300px;
-    height: 180px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, var(--accent), var(--accent-deep));
-    filter: blur(100px);
-    opacity: .13;
-    pointer-events: none;
-}
-.hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: min(1100px, 88%);
-    height: 1px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, transparent, rgba(139,108,255,.55), transparent);
-}
-.hero h1 {
-    position: relative;
-    margin: 0 auto 7px;
-    color: #f5f5f6;
-    font-size: clamp(29px, 3.8vw, 40px);
-    font-weight: 850;
-    line-height: 1.12;
-    letter-spacing: -.045em;
-}
-.hero p {
-    position: relative;
-    max-width: 680px;
-    margin: 0 auto;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-}
-.updated {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 9px;
-    padding: 6px 11px;
-    border: 1px solid rgba(139,108,255,.23);
-    border-radius: 999px;
-    background: rgba(139,108,255,.09);
-    color: #c6b8ff;
-    box-shadow: 0 4px 14px rgba(0,0,0,.12);
-    font-size: 11px;
-    font-weight: 700;
-}
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); align-items: stretch; gap: 20px; }
+    .contact-card {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(180,196,230,.14);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(21,29,43,.97), rgba(13,19,30,.98));
+      box-shadow: 0 20px 55px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.025);
+    }
+    .social-card { display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 3.4vw, 42px); }
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      width: 280px;
+      height: 280px;
+      right: -150px;
+      top: -170px;
+      border-radius: 50%;
+      background: rgba(83,183,255,.10);
+      filter: blur(8px);
+    }
+    .social-card::before { width: 360px; height: 360px; top: auto; bottom: -205px; right: -110px; background: rgba(155,123,255,.12); }
+    .card-top { position: relative; display: flex; align-items: center; gap: 13px; margin-bottom: 22px; }
+    .icon-wrap {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      border: 1px solid rgba(102,192,244,.22);
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(102,192,244,.16), rgba(83,183,255,.06));
+      color: var(--blue-bright);
+      font-size: 20px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .instagram-icon { color: #ffb4d7; border-color: rgba(255,119,190,.26); background: linear-gradient(145deg, rgba(255,119,190,.17), rgba(155,123,255,.1)); }
+    .card-kicker { color: #87a6bb; font-size: 9px; font-weight: 800; letter-spacing: 1.8px; }
+    h2 { position: relative; margin-bottom: 8px; font-size: clamp(21px, 2vw, 27px); line-height: 1.25; letter-spacing: -.7px; }
+    .card-copy { position: relative; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    .instagram-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 17px;
+      border: 1px solid rgba(102,192,244,.32);
+      border-radius: 5px;
+      background: linear-gradient(180deg, #77c9f3, #58a8d9);
+      color: #06121b;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .25px;
+      cursor: pointer;
+      transition: transform .18s, filter .18s, box-shadow .18s;
+    }
+    .instagram-button:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 9px 25px rgba(57,151,205,.17); }
+    .instagram-button:focus-visible, .top-nav-link:focus-visible, .archive-upload-btn:focus-visible, .mobile-menu:focus-visible { outline: 2px solid var(--blue-bright); outline-offset: 3px; }
 
-.container { width: min(var(--content-width), 90%); margin: 0 auto; }
-.policy-box, .terms-box {
-    margin: 14px auto 48px;
-    padding: clamp(22px, 4vw, 42px);
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 22px;
-    background: linear-gradient(145deg, rgba(20,27,41,.97), rgba(13,18,29,.98));
-    outline: 1px solid rgba(255,255,255,.025);
-    box-shadow: 0 16px 48px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.035);
+    .social-card-content { position: relative; z-index: 1; }
+    .social-card .card-top { margin-bottom: 27px; }
+    .social-card h2 { max-width: 370px; font-size: clamp(25px, 2.4vw, 32px); }
+    .social-card .card-copy { max-width: 390px; margin-bottom: 26px; font-size: 13px; }
+    .instagram-profile, .direct-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 17px;
+      border: 1px solid rgba(180,196,230,.12);
+      border-radius: 7px;
+      background: rgba(6,10,18,.42);
+    }
+    .profile-icon {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      flex: 0 0 43px;
+      border-radius: 12px;
+      color: white;
+      font-size: 20px;
+      background: linear-gradient(135deg, #7b61ff, #e44b9b 58%, #ffb052);
+      box-shadow: 0 8px 22px rgba(212,77,163,.16);
+    }
+    .direct-profile .profile-icon { background: linear-gradient(135deg, #236da3, #4ab6ed 68%, #8bd5ff); box-shadow: 0 8px 22px rgba(57,151,205,.16); }
+    .direct-card::before { top: auto; bottom: -205px; right: -110px; background: rgba(83,183,255,.13); }
+    .direct-card .instagram-button { border-color: rgba(102,192,244,.32); background: linear-gradient(100deg, #77c9f3, #58a8d9); color: #06121b; }
+    .profile-details { display: grid; min-width: 0; gap: 2px; }
+    .profile-details strong { font-size: 12px; font-weight: 800; }
+    .profile-details span { color: var(--muted); font-size: 10px; }
+    .profile-external { margin-left: auto; color: #899db4; font-size: 12px; }
+    .instagram-button { width: 100%; min-height: 45px; border-color: rgba(225,104,177,.34); background: linear-gradient(100deg, #8c6cff, #d64fa1 72%, #ec825e); color: white; }
+    .instagram-note { margin-top: 13px; color: #71839a; font-size: 10px; line-height: 1.6; text-align: center; }
+
+    footer { margin-top: 0; border-top: 1px solid rgba(180,196,230,.12); background: rgba(7,10,16,.48); }
+    .footer-inner { width: min(1560px, 100%); margin: auto; padding: 32px 34px 24px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 40px; }
+    .footer-logo { display: inline-flex; align-items: center; gap: 9px; font-size: 19px; font-weight: 800; letter-spacing: -.7px; white-space: nowrap; }
+    .footer-logo-icon { width: 31px; height: 31px; overflow: hidden; border-radius: 5px; }
+    .footer-logo-icon img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .footer-brand p { max-width: 370px; margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .footer-column h4 { margin-bottom: 12px; color: #e4e9f4; font-size: 11px; letter-spacing: 1px; }
+    .footer-column a { display: block; width: fit-content; margin: 9px 0; color: var(--muted); font-size: 12px; transition: color .18s, transform .18s; }
+    .footer-column a:hover { color: var(--blue-bright); transform: translateX(2px); }
+    .copyright { display: flex; justify-content: space-between; gap: 10px; margin-top: 27px; padding-top: 20px; border-top: 1px solid rgba(180,196,230,.12); color: #758198; font-size: 10px; }
+
+    @media (min-width: 1500px) {
+      .page-shell { width: min(1440px, calc(100% - 80px)); }
+      .contact-grid { grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr); gap: 24px; }
+    }
+    @media (min-width: 851px) and (max-width: 1100px) {
+      .nav { gap: 6px; padding-left: 8px; padding-right: 8px; }
+      .logo { gap: 5px; }
+      .logo-icon { width: 25px; height: 25px; flex-basis: 25px; }
+      .logo-word { font-size: 14px; }
+      .top-nav-link { padding-left: 4px; padding-right: 4px; font-size: 8px; letter-spacing: .2px; }
+      .search-wrapper { min-width: 115px; flex-basis: 170px; }
+      .archive-upload-btn { padding-left: 7px; padding-right: 7px; font-size: 8px; }
+      .page-shell { width: calc(100% - 40px); }
+    }
+    @media (max-width: 850px) {
+      body { padding-top: 60px; }
+      .header { height: 60px; min-height: 60px; }
+      .nav { height: 60px; min-height: 60px; gap: 7px; padding: 0 9px 0 45px; }
+      .logo { min-width: 0; gap: 5px; font-size: 14px; }
+      .logo-icon { width: 27px; height: 27px; flex-basis: 27px; }
+      .logo-word { font-size: 14px; }
+      .top-store-nav { display: none; }
+      .archive-upload-btn { min-height: 32px; height: 32px; padding: 0 7px; gap: 5px; font-size: 8px; letter-spacing: .45px; }
+      .archive-upload-btn i { font-size: 11px; }
+      .search-wrapper { flex: 0 0 34px; width: 34px; min-width: 34px; max-width: 34px; margin-left: auto; }
+      .nav-search { justify-content: center; width: 34px; height: 34px; gap: 0; padding: 0; border-radius: 4px; cursor: pointer; }
+      .nav-search i { font-size: 14px; }
+      .nav-search input { display: none; }
+      .header.search-expanded .logo { visibility: hidden; }
+      .header.search-expanded .search-wrapper { position: absolute; left: 45px; right: 91px; top: 12px; width: auto; min-width: 0; max-width: none; margin: 0; z-index: 4; }
+      .header.search-expanded .nav-search { justify-content: flex-start; width: 100%; height: 36px; gap: 8px; padding: 0 9px; }
+      .header.search-expanded .nav-search input { display: block; flex: 1; width: 100%; min-width: 0; color: #e8f3fa; font-size: 12px; }
+      .mobile-menu { position: fixed; z-index: 1800; top: 13px; left: 7px; display: grid; place-items: center; width: 32px; height: 34px; padding: 0; border: 1px solid rgba(102,192,244,.22); border-radius: 4px; background: #0c1b27; color: #9edcff; cursor: pointer; }
+      .mobile-drawer-shade { position: fixed; z-index: 1600; inset: 60px 0 0; display: block; background: rgba(0,0,0,.58); opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; }
+      .mobile-drawer { position: fixed; z-index: 1650; inset: 60px auto 0 0; display: flex; flex-direction: column; gap: 5px; width: min(300px, 86vw); padding: 18px 14px; border-right: 1px solid rgba(102,192,244,.19); background: #0c1520; box-shadow: 15px 0 40px rgba(0,0,0,.25); transform: translateX(-102%); visibility: hidden; transition: transform .22s, visibility .22s; }
+      .mobile-drawer a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 13px; border: 1px solid transparent; border-radius: 4px; color: #b9c9d9; font-size: 12px; font-weight: 700; }
+      .mobile-drawer a:hover, .mobile-drawer a.active { border-color: rgba(102,192,244,.15); background: rgba(102,192,244,.08); color: #fff; }
+      .mobile-drawer a i { width: 17px; color: var(--blue); text-align: center; }
+      body.menu-open .mobile-drawer { transform: translateX(0); visibility: visible; }
+      body.menu-open .mobile-drawer-shade { opacity: 1; visibility: visible; }
+      .page-shell { width: min(100% - 32px, 720px); padding: 34px 0 48px; }
+      .contact-intro { margin-bottom: 24px; }
+      h1 { font-size: clamp(32px, 7vw, 44px); letter-spacing: -1.5px; }
+      .intro-copy { margin-top: 11px; font-size: 12px; }
+      .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+      .social-card { min-height: 300px; }
+      .footer-inner { padding: 27px 20px 20px; }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-brand p { max-width: 520px; }
+      .copyright { margin-top: 22px; padding-top: 16px; }
+    }
+    @media (max-width: 480px) {
+      .page-shell { width: calc(100% - 24px); padding-top: 28px; }
+      .eyebrow { margin-bottom: 9px; font-size: 9px; letter-spacing: 1.7px; }
+      h1 { font-size: clamp(30px, 8.5vw, 38px); }
+      .intro-copy { max-width: 330px; }
+      .social-card { padding: 21px 17px; }
+      .card-top { gap: 10px; margin-bottom: 18px; }
+      .icon-wrap { width: 43px; height: 43px; flex-basis: 43px; font-size: 18px; }
+      .social-card { min-height: 0; }
+      .footer-inner { padding-left: 16px; padding-right: 16px; }
+      .footer-grid { gap: 22px 15px; }
+      .footer-column h4 { font-size: 10px; }
+      .footer-column a { font-size: 11px; }
+      .copyright { flex-direction: column; gap: 5px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+<meta content="website" property="og:type"/><meta content="Privacy Policy | FistENGINE" property="og:title"/><meta content="Read the FistENGINE Privacy Policy to learn how information, cookies, advertising, and website usage may be handled." property="og:description"/><meta content="https://fistengine.github.io/privacy-policy.html" property="og:url"/><style id="fistengine-legal-page-style">
+/* Legal pages: wide, Steam-inspired editorial treatment */
+body { background:
+  radial-gradient(ellipse at 10% 4%, rgba(45,126,180,.15), transparent 34%),
+  radial-gradient(ellipse at 91% 20%, rgba(94,78,182,.12), transparent 33%),
+  var(--bg); }
+.legal-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  border-bottom: 1px solid rgba(102,192,244,.13);
+  background: linear-gradient(112deg, rgba(11,24,39,.96), rgba(9,17,30,.86) 56%, rgba(19,24,42,.92));
 }
-.policy-section, .terms-section {
-    position: relative;
-    padding: 4px 0 27px;
-    margin: 0 0 26px;
+.legal-hero::before {
+  content: ""; position: absolute; z-index: -1; width: 620px; height: 420px;
+  left: -160px; top: -240px; border-radius: 50%;
+  background: rgba(75,161,224,.16); filter: blur(75px); pointer-events: none;
 }
-.policy-section::after, .terms-section::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(139,108,255,.38), rgba(93,156,255,.18), rgba(255,255,255,.025), transparent);
+.legal-hero::after {
+  content: ""; position: absolute; z-index: -1; width: 520px; height: 420px;
+  right: -170px; bottom: -260px; border-radius: 50%;
+  background: rgba(117,96,226,.14); filter: blur(76px); pointer-events: none;
 }
-.policy-section:last-child, .terms-section:last-child { padding-bottom: 0; margin-bottom: 0; }
-.policy-section:last-child::after, .terms-section:last-child::after { display: none; }
-.policy-section h2, .terms-section h2 {
-    margin-bottom: 11px;
-    color: #f4f4f5;
-    font-size: clamp(18px, 2vw, 22px);
-    font-weight: 800;
-    line-height: 1.35;
-    letter-spacing: -.025em;
+.legal-hero-inner {
+  width: min(1480px, calc(100% - clamp(32px, 7vw, 130px)));
+  min-height: 340px; margin: 0 auto; padding: clamp(32px, 5vw, 70px) 0;
+  display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(370px, .98fr);
+  align-items: center; gap: clamp(28px, 5vw, 78px);
 }
-.policy-section h3, .terms-section h3 {
-    margin: 17px 0 7px;
-    color: #f1f1f2;
-    font-size: 14px;
-    font-weight: 750;
-    line-height: 1.45;
-}
-.policy-section p, .terms-section p,
-.policy-section li, .terms-section li {
-    color: var(--muted);
-    font-size: 13.5px;
-    line-height: 1.85;
-}
+.legal-eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 18px;
+  color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: 2.2px; text-transform: uppercase; }
+.legal-eyebrow i { font-size: 13px; }
+.legal-hero h1 { max-width: 730px; color: #f5f8ff; font-size: clamp(38px, 5.1vw, 68px);
+  line-height: 1.02; letter-spacing: -2.8px; font-weight: 850; }
+.legal-hero h1 span { color: transparent; background: linear-gradient(90deg, #8bd5ff, #a99aff 90%);
+  -webkit-background-clip: text; background-clip: text; }
+.legal-hero-copy { max-width: 610px; margin-top: 19px; color: #a8b7ca; font-size: clamp(13px, 1.1vw, 15px); line-height: 1.8; }
+.legal-updated { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 8px 12px;
+  border: 1px solid rgba(102,192,244,.18); border-radius: 4px; background: rgba(7,20,32,.56);
+  color: #adcde2; font-size: 10px; font-weight: 700; letter-spacing: .4px; }
+.legal-art { position: relative; min-width: 0; min-height: 260px; height: clamp(270px, 27vw, 390px); }
+.legal-art-main { position: absolute; inset: 0 8% 6% 2%; overflow: hidden; border: 1px solid rgba(146,203,241,.24);
+  border-radius: 5px; background: #111d2b; box-shadow: 0 26px 66px rgba(0,0,0,.35); }
+.legal-art-main::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,13,25,.46), transparent 70%), linear-gradient(0deg, rgba(5,13,25,.62), transparent 55%); }
+.legal-art-main img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(1.04); }
+.legal-art-secondary { position: absolute; width: 31%; height: 38%; right: 0; bottom: 0; overflow: hidden;
+  border: 3px solid #101a29; border-radius: 4px; background: #14243a; box-shadow: 0 18px 45px rgba(0,0,0,.4); }
+.legal-art-secondary img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.legal-art-label { position: absolute; z-index: 1; left: 22px; bottom: 20px; display: flex; align-items: center; gap: 10px;
+  color: #eef8ff; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+.legal-art-label i { display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid rgba(139,213,255,.42); background: rgba(7,24,38,.84); color: var(--blue); font-size: 14px; }
+.legal-art-chip { position: absolute; z-index: 2; right: 14%; top: 10%; padding: 9px 12px; border: 1px solid rgba(193,220,245,.19);
+  background: rgba(8,19,31,.82); color: #dceefa; font-size: 9px; letter-spacing: 1.2px; font-weight: 800; backdrop-filter: blur(14px); }
+.legal-principles { width: min(1480px, calc(100% - clamp(32px, 7vw, 130px))); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border-bottom: 1px solid var(--line); }
+.legal-principle { display: flex; align-items: center; gap: 12px; min-height: 74px; padding: 15px clamp(8px, 2vw, 26px); border-right: 1px solid var(--line); }
+.legal-principle:first-child { padding-left: 0; }
+.legal-principle:last-child { border-right: 0; }
+.legal-principle i { flex: 0 0 auto; color: var(--blue); font-size: 17px; }
+.legal-principle strong { display: block; color: #e6f1fa; font-size: 11px; line-height: 1.5; letter-spacing: .25px; }
+.legal-principle span { display: block; margin-top: 2px; color: #7f95aa; font-size: 10px; line-height: 1.5; }
+.legal-layout { width: min(1480px, calc(100% - clamp(32px, 7vw, 130px))); margin: 0 auto;
+  padding: clamp(30px, 4.4vw, 62px) 0 clamp(56px, 6vw, 90px); display: grid;
+  grid-template-columns: minmax(215px, 270px) minmax(0,1fr); align-items: start; gap: clamp(28px, 4vw, 64px); }
+.legal-toc { position: sticky; top: 72px; min-width: 0; padding: 18px 0; }
+.legal-toc-label { margin-bottom: 13px; color: #7895ad; font-size: 9px; font-weight: 850; letter-spacing: 1.9px; }
+.legal-toc-list { display: grid; gap: 3px; max-height: min(55vh, 540px); overflow: auto; scrollbar-width: thin; scrollbar-color: #29445b transparent; }
+.legal-toc-list a { display: flex; align-items: baseline; gap: 10px; padding: 9px 10px; border-left: 2px solid transparent;
+  color: #8fa3b8; font-size: 11px; line-height: 1.45; transition: color .18s, background .18s, border-color .18s; }
+.legal-toc-list a span { flex: 0 0 20px; color: #5e7c94; font-size: 9px; font-weight: 800; }
+.legal-toc-list a:hover, .legal-toc-list a:focus-visible { color: #eaf6ff; border-left-color: var(--blue); background: rgba(102,192,244,.06); }
+.legal-side-card { position: relative; overflow: hidden; margin-top: 27px; min-height: 180px; border: 1px solid rgba(102,192,244,.15); background: #0e1927; }
+.legal-side-card img { display: block; width: 100%; height: 132px; object-fit: cover; opacity: .72; }
+.legal-side-card div { padding: 13px 14px 15px; }
+.legal-side-card strong { display: block; margin-bottom: 5px; color: #e6f3fc; font-size: 11px; }
+.legal-side-card a { color: var(--blue); font-size: 10px; font-weight: 750; }
+.legal-content { min-width: 0; }
+.legal-content-intro { padding: 0 0 21px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+.legal-content-intro .overline { color: var(--blue); font-size: 9px; font-weight: 850; letter-spacing: 1.8px; }
+.legal-content-intro h2 { margin-top: 8px; color: #f3f7fc; font-size: clamp(21px, 2.3vw, 30px); line-height: 1.2; letter-spacing: -.8px; }
+.legal-content-intro p { max-width: 780px; margin-top: 10px; color: #93a7bc; font-size: 12px; line-height: 1.8; }
+.policy-section, .terms-section { position: relative; padding: 25px 0 27px; margin: 0; border-bottom: 1px solid rgba(155,184,211,.12); scroll-margin-top: 76px; }
+.policy-section:last-child, .terms-section:last-child { border-bottom: 0; }
+.policy-section h2, .terms-section h2 { display: flex; align-items: baseline; gap: 13px; margin-bottom: 11px; color: #eef5fc; font-size: clamp(17px, 1.6vw, 21px); font-weight: 780; line-height: 1.35; letter-spacing: -.45px; }
+.policy-section h2::before, .terms-section h2::before { content: none; display: none; }
+.policy-section h3, .terms-section h3 { margin: 17px 0 7px; color: #dceaf5; font-size: 12px; font-weight: 800; line-height: 1.5; }
+.policy-section p, .terms-section p, .policy-section li, .terms-section li { color: #9aabbd; font-size: 12px; line-height: 1.9; }
 .policy-section p + p, .terms-section p + p { margin-top: 10px; }
-.policy-section ul, .terms-section ul { margin: 10px 0 12px 22px; }
+.policy-section ul, .terms-section ul { margin: 10px 0 12px 20px; }
 .policy-section li, .terms-section li { margin-bottom: 5px; padding-left: 3px; }
-.policy-section li::marker, .terms-section li::marker { color: #b9a7ff; }
-
-/* Red-accent information callouts */
-.highlight, .warning {
-    margin: 16px 0 4px;
-    padding: 17px 19px;
-    border: 1px solid rgba(139,108,255,.20);
-    border-left: 3px solid var(--accent);
-    border-radius: 13px;
-    background: linear-gradient(110deg, rgba(139,108,255,.10), rgba(93,156,255,.035));
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+.policy-section li::marker, .terms-section li::marker { color: #66c0f4; }
+.highlight, .warning { margin: 15px 0 3px; padding: 15px 17px; border: 1px solid rgba(102,192,244,.17); border-left: 3px solid #66c0f4; border-radius: 3px;
+  background: linear-gradient(100deg, rgba(56,125,171,.13), rgba(126,103,211,.04)); }
+.highlight p, .warning p { color: #b3c4d4; font-size: 11.5px; line-height: 1.85; }
+.legal-image-break { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: center; margin: 26px 0 8px; padding: 16px; border: 1px solid rgba(102,192,244,.13); background: linear-gradient(110deg, rgba(16,31,47,.78), rgba(13,20,33,.7)); }
+.legal-image-break img { display: block; width: 100%; height: 140px; object-fit: cover; }
+.legal-image-break strong { display: block; color: #e4f2fc; font-size: 12px; margin-bottom: 6px; }
+.legal-image-break p { color: #91a6bb; font-size: 11px; line-height: 1.8; }
+@media (max-width: 950px) {
+  .legal-hero-inner { grid-template-columns: minmax(0, 1fr) minmax(280px, .82fr); gap: 30px; }
+  .legal-layout { grid-template-columns: 210px minmax(0,1fr); gap: 26px; }
+  .legal-toc-list a { font-size: 10px; }
 }
-.highlight p, .warning p { color: #aeb9cc; font-size: 12.5px; line-height: 1.8; }
-
-footer {
-    margin-top: 26px;
-    padding: 27px 20px;
-    border-top: 1px solid rgba(255,255,255,.10);
-    background: #090c13;
-    color: var(--muted-2);
-    text-align: center;
-    font-size: 11.5px;
+@media (max-width: 760px) {
+  .legal-hero-inner { width: calc(100% - 34px); padding: 34px 0 29px; grid-template-columns: 1fr; gap: 24px; }
+  .legal-hero h1 { font-size: clamp(36px, 8vw, 52px); letter-spacing: -1.8px; }
+  .legal-hero-copy { margin-top: 13px; font-size: 13px; }
+  .legal-art { min-height: 215px; height: 55vw; max-height: 300px; }
+  .legal-art-main { inset: 0 7% 5% 0; }
+  .legal-principles { width: calc(100% - 34px); grid-template-columns: 1fr; }
+  .legal-principle, .legal-principle:first-child { min-height: 57px; padding: 10px 2px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .legal-principle:last-child { border-bottom: 0; }
+  .legal-principle i { width: 26px; text-align: center; }
+  .legal-layout { width: calc(100% - 34px); padding-top: 26px; grid-template-columns: 1fr; gap: 24px; }
+  .legal-toc { position: static; padding: 0; }
+  .legal-toc-list { display: flex; gap: 7px; max-height: none; overflow-x: auto; padding-bottom: 5px; }
+  .legal-toc-list a { flex: 0 0 auto; border: 1px solid rgba(102,192,244,.15); background: rgba(15,31,47,.55); padding: 9px 11px; border-radius: 3px; font-size: 10px; }
+  .legal-toc-list a span { flex-basis: auto; }
+  .legal-toc-list a:hover { border-color: rgba(102,192,244,.4); }
+  .legal-side-card { display: none; }
+  .legal-content-intro h2 { font-size: 24px; }
+  .policy-section, .terms-section { padding: 21px 0 23px; }
+  .policy-section p, .terms-section p, .policy-section li, .terms-section li { font-size: 12px; }
 }
-footer strong { color: #f3f3f5; font-weight: 750; }
-footer p + p { margin-top: 7px; }
-
-/* Same responsive sizing as About */
-@media (max-width: 650px) {
-    .navbar { min-height: 60px; padding: 10px 5%; }
-    .navbar-logo img { width: 34px; height: 34px; }
-    .back-home { min-height: 36px; padding: 8px 12px; gap: 6px; font-size: 12px; }
-    .back-home-arrow { font-size: 17px; }
-    .hero { padding: 18px 16px 16px; }
-    .hero h1 { font-size: 29px; }
-    .hero p { max-width: 520px; font-size: 12.5px; }
-    .container { width: 92%; }
-    .policy-box, .terms-box { margin-top: 10px; padding: 22px 18px; border-radius: 18px; }
-    .policy-section, .terms-section { padding-bottom: 21px; margin-bottom: 20px; }
+@media (max-width: 420px) {
+  .legal-hero-inner { width: calc(100% - 28px); }
+  .legal-hero h1 { font-size: 35px; }
+  .legal-art { min-height: 190px; }
+  .legal-art-label { left: 13px; bottom: 12px; font-size: 8px; }
+  .legal-art-label i { width: 30px; height: 30px; }
+  .legal-art-chip { right: 10%; top: 8%; padding: 7px 8px; font-size: 8px; }
+  .legal-principles, .legal-layout { width: calc(100% - 28px); }
+  .legal-image-break { grid-template-columns: 1fr; gap: 12px; }
+  .legal-image-break img { height: 150px; }
 }
-@media (max-width: 360px) {
-    .navbar { padding-left: 4%; padding-right: 4%; }
-    .back-home { padding: 8px 10px; }
-}
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-}
-
-
-
-/* AppExio storefront theme alignment */
-:root {
-    color-scheme: dark;
-    --bg: #0b0d12;
-    --surface: #12161f;
-    --surface-deep: #191e29;
-    --line: rgba(180,196,230,.12);
-    --text: #f5f7fb;
-    --muted: #9aa3b2;
-    --muted-2: #778399;
-    --accent: #8b6cff;
-    --accent-deep: #5d9cff;
-    --accent-soft: rgba(139,108,255,.12);
-    --content-width: 1080px;
-}
-html { background: var(--bg); }
-body {
-    background:
-      radial-gradient(ellipse at 12% -12%, rgba(91,75,183,.17), transparent 36%),
-      radial-gradient(ellipse at 90% 8%, rgba(58,104,180,.10), transparent 30%),
-      var(--bg);
-    color: var(--text);
-}
-.navbar {
-    min-height: 72px;
-    padding: 10px max(24px, calc((100vw - 1444px) / 2));
-    background: rgba(11,13,18,.92);
-    border-bottom: 1px solid rgba(180,196,230,.12);
-    box-shadow: 0 10px 32px rgba(0,0,0,.28);
-}
-.navbar-logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    min-height: 42px;
-}
-    
-.navbar-logo img {
-    width: 38px;
-    height: 38px;
-    object-fit: contain;
-    background: transparent;
-    box-shadow: none;
-}
-    
-.logo-word {
-    display: inline-flex;
-    align-items: center;
-    color: #f5f7fb;
-    font-size: 18px;
-    font-weight: 900;
-    letter-spacing: -.8px;
-    line-height: 1;
-}
-.logo-word span { color: #a995ff; }
-.back-home {
-    min-height: 40px;
-    padding: 9px 15px;
-    border: 1px solid rgba(155,123,255,.25);
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(139,108,255,.15), rgba(93,156,255,.08));
-    color: #e6e1ff;
-    box-shadow: 0 5px 18px rgba(0,0,0,.12);
-}
-.back-home:hover {
-    color: #fff;
-    border-color: rgba(155,123,255,.55);
-    background: linear-gradient(135deg, rgba(139,108,255,.25), rgba(93,156,255,.16));
-    transform: translateY(-1px);
-}
-.back-home-arrow { color: #b8a7ff; }
-.hero {
-    background: linear-gradient(180deg, rgba(255,255,255,.025), transparent);
-}
-.hero::before {
-    background: linear-gradient(90deg, #8b6cff, #5d9cff);
-    opacity: .17;
-}
-.hero::after {
-    background: linear-gradient(90deg, transparent, rgba(139,108,255,.55), rgba(93,156,255,.35), transparent);
-}
-.hero h1 { color: #f5f7fb; }
-.hero p { color: #aab5c8; }
-.updated {
-    border-color: rgba(139,108,255,.27);
-    background: rgba(139,108,255,.11);
-    color: #c6b8ff;
-}
-.about-box, .policy-box, .terms-box {
-    border-color: rgba(180,196,230,.13);
-    background: linear-gradient(145deg, rgba(20,27,41,.98), rgba(13,18,29,.98));
-    box-shadow: 0 18px 52px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.035);
-}
-.about-section::after, .policy-section::after, .terms-section::after {
-    background: linear-gradient(90deg, rgba(139,108,255,.38), rgba(93,156,255,.18), rgba(180,196,230,.025), transparent);
-}
-.section-heading, .policy-section h2, .terms-section h2 { color: #f1f4fb; }
-.section-copy, .policy-section p, .terms-section p,
-.policy-section li, .terms-section li { color: #aab5c8; }
-.feature-card, .stat-card {
-    border-color: rgba(180,196,230,.12);
-    background: linear-gradient(155deg, rgba(25,34,52,.96), rgba(16,22,34,.98));
-    box-shadow: 0 7px 20px rgba(0,0,0,.13);
-}
-.feature-card:hover {
-    border-color: rgba(155,123,255,.42);
-    background: linear-gradient(155deg, #202b43, #141d2e);
-    box-shadow: 0 14px 30px rgba(0,0,0,.24), 0 0 22px rgba(139,108,255,.07);
-}
-.feature-icon {
-    border-color: rgba(155,123,255,.16);
-    background: rgba(139,108,255,.12);
-    color: #c0b1ff;
-}
-.feature-card h3, .mission h2, .notice h3 { color: #f1f4fb; }
-.mission {
-    border-color: rgba(139,108,255,.24);
-    border-left-color: #8b6cff;
-    background: linear-gradient(115deg, rgba(139,108,255,.13), rgba(93,156,255,.055), rgba(17,24,38,.72));
-}
-.mission::after { background: radial-gradient(circle, rgba(139,108,255,.16), transparent 68%); }
-.stat-card h3 { color: #b9a7ff; }
-.notice, .highlight, .warning {
-    border-color: rgba(139,108,255,.22);
-    border-left-color: #8b6cff;
-    background: linear-gradient(110deg, rgba(139,108,255,.11), rgba(93,156,255,.045));
-}
-.policy-section li::marker, .terms-section li::marker { color: #b9a7ff; }
-footer {
-    border-top-color: rgba(180,196,230,.12);
-    background: rgba(7,10,16,.48);
-    color: #778399;
-}
-footer strong { color: #e8eaf4; }
-@media (max-width: 650px) {
-    .navbar { min-height: 64px; padding: 9px 15px; }
-    .navbar-logo img { width: 35px; height: 35px; }
-    .logo-word { font-size: 17px; }
-    .back-home { min-height: 37px; padding: 8px 11px; font-size: 11.5px; }
-}
-
-</style>
-</head>
-<body>
-<!-- NAVBAR -->
-<nav aria-label="Main navigation" class="navbar">
-<a aria-label="AppExio home" class="navbar-logo" href="index.html">
-<img alt="FistEngine" src="favicon.png"/>
-<span class="logo-word">Fist<span>ENGINE</span></span></a>
-<a aria-label="Back to home" class="back-home" href="index.html">
-<span aria-hidden="true" class="back-home-arrow">←</span>
-<span>Back to Home</span>
+</style></head>
+<body class="fistengine-legal-body" id="top">
+<header class="header" id="siteHeader">
+<nav aria-label="Main navigation" class="nav">
+<a aria-label="FistENGINE home" class="logo" href="index.html">
+<span class="logo-icon"><img alt="" src="favicon.png"/></span>
+<span class="logo-word">Fist<span>ENGINE</span></span>
+</a>
+<nav aria-label="Quick links" class="top-store-nav">
+<a class="top-nav-link" href="index.html">HOME</a>
+<a class="top-nav-link" href="contact.html">CONTACT</a>
+<a class="top-nav-link" href="about-us.html">ABOUT</a>
+<a class="top-nav-link" href="index.html#games">LATEST RELEASES</a>
+</nav>
+<div class="search-wrapper" id="searchWrapper">
+<div aria-label="Search the FistENGINE store" class="nav-search" id="navSearch" role="search">
+<i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+<input aria-label="Search the store" autocomplete="off" id="siteSearch" placeholder="Search the store..." type="search"/>
+</div>
+</div>
+<a aria-label="Upload a new app or game" class="archive-upload-btn" href="User-Console.html">
+<i aria-hidden="true" class="fa-solid fa-cloud-arrow-up"></i><span>UPLOAD</span>
 </a>
 </nav>
-<!-- HERO -->
-<section class="hero">
-<h1>Privacy</h1>
-<p>
-            Your privacy matters to us. This policy explains how FistEngine
-            handles information when you visit and use our website.
-        </p>
-<div class="updated">
-            Last Updated: August 22, 2026
-        </div>
+</header>
+<button aria-expanded="false" aria-label="Open navigation menu" class="mobile-menu" id="mobileMenuButton" type="button">
+<i aria-hidden="true" class="fa-solid fa-bars"></i>
+</button>
+<div aria-hidden="true" class="mobile-drawer-shade" id="mobileDrawerShade"></div>
+<nav aria-label="Mobile navigation" class="mobile-drawer" id="mobileDrawer">
+<a href="index.html"><i aria-hidden="true" class="fa-solid fa-house"></i> Store home</a>
+<a href="index.html#games"><i aria-hidden="true" class="fa-solid fa-clock"></i> Latest releases</a>
+<a href="about-us.html"><i aria-hidden="true" class="fa-regular fa-circle-question"></i> About FistENGINE</a>
+<a href="contact.html"><i aria-hidden="true" class="fa-regular fa-envelope"></i> Contact</a>
+<a aria-current="page" class="active" href="privacy-policy.html"><i aria-hidden="true" class="fa-solid fa-shield-halved"></i> Privacy policy</a><a href="terms.html"><i aria-hidden="true" class="fa-solid fa-file-contract"></i> Terms &amp; Conditions</a><a href="user-console-jdcbuydbcduiebceuif9wbcephpppepdwejnwdicijwbedijcnwjenoi.html"><i aria-hidden="true" class="fa-solid fa-cloud-arrow-up"></i> Upload</a>
+</nav>
+<main class="legal-main privacy-page">
+<section aria-labelledby="legalPageTitle" class="legal-hero">
+<div class="legal-hero-inner">
+<div class="legal-hero-copy-block">
+<div class="legal-eyebrow"><i aria-hidden="true" class="fa-solid fa-shield-halved"></i> FistENGINE / LEGAL CENTER</div>
+<h1 id="legalPageTitle">Your <span>data. Your choices.</span></h1>
+<p class="legal-hero-copy">Your privacy matters to us. This policy explains how FistEngine
+            handles information when you visit and use our website.</p>
+<div class="legal-updated"><i aria-hidden="true" class="fa-regular fa-clock"></i> Last Updated: August 22, 2026</div>
+</div>
+<div aria-label="Digital privacy and data security artwork" class="legal-art">
+<div class="legal-art-main"><img alt="Padlock and computer keyboard representing digital privacy and security" decoding="async" loading="eager" src="https://fistengine.github.io/privacy.jpg?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"/><div class="legal-art-label"><i aria-hidden="true" class="fa-solid fa-shield-halved"></i><span>DATA &amp; PRIVACY</span></div></div>
+<div class="legal-art-secondary"><img alt="Additional digital security detail" decoding="async" loading="lazy" src="https://fistengine.github.io/priv.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/></div>
+<div class="legal-art-chip">POLICY CENTER</div>
+</div>
+</div>
 </section>
-<!-- POLICY -->
-<main class="container">
-<div class="policy-box">
-<!-- INTRODUCTION -->
-<section class="policy-section">
-<h2>1. Introduction</h2>
+<section aria-label="Page highlights" class="legal-principles"><div class="legal-principle"><i aria-hidden="true" class="fa-solid fa-user-shield"></i><div><strong>Information &amp; choices</strong><span>What may be collected and what you can control</span></div></div><div class="legal-principle"><i aria-hidden="true" class="fa-solid fa-cookie-bite"></i><div><strong>Cookies &amp; services</strong><span>How browser features and third parties may work</span></div></div><div class="legal-principle"><i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square"></i><div><strong>External links</strong><span>What to consider when leaving the site</span></div></div></section>
+<div class="legal-layout">
+<aside aria-label="On this page" class="legal-toc">
+<div class="legal-toc-label">IN THIS POLICY</div>
+<nav aria-label="Jump to a section" class="legal-toc-list"><a href="#privacy-introduction"><span>01</span>Introduction</a><a href="#privacy-information-we-collect"><span>02</span>Information We Collect</a><a href="#privacy-cookies"><span>03</span>Cookies</a><a href="#privacy-advertising"><span>04</span>Advertising</a><a href="#privacy-third-party-websites-and-links"><span>05</span>Third-Party Websites and Links</a><a href="#privacy-downloads-and-external-files"><span>06</span>Downloads and External Files</a><a href="#privacy-children-s-privacy"><span>07</span>Children's Privacy</a><a href="#privacy-data-security"><span>08</span>Data Security</a><a href="#privacy-data-retention"><span>09</span>Data Retention</a><a href="#privacy-your-choices-and-rights"><span>10</span>Your Choices and Rights</a><a href="#privacy-changes-to-this-privacy-policy"><span>11</span>Changes to This Privacy Policy</a></nav>
+<div class="legal-side-card">
+<img alt="Digital security detail" decoding="async" loading="lazy" src="https://thumbs.dreamstime.com/b/cyber-security-data-protection-business-technology-privacy-concept-121386277.jpg?auto=format&amp;fit=crop&amp;w=1000&amp;q=82"/>
+<div><strong>Need help understanding a page?</strong><p>Contact FistENGINE if you need to report a concern or ask a question about this site.</p><a href="contact.html">CONTACT FistENGINE  →</a></div>
+</div>
+</aside>
+<article aria-label="Privacy policy" class="legal-content">
+<header class="legal-content-intro">
+<div class="overline">FistENGINE / PRIVACY</div>
+<h2>How this page is organized</h2>
+<p>Use the section guide to jump to information about data, cookies, third-party services, downloads, and your available choices. The original policy wording is preserved below.</p>
+</header>
+<section class="policy-section legal-section" id="privacy-introduction">
+<h2 data-num="01" id="privacy-introduction-title">1. Introduction</h2>
 <p>
                     Welcome to FistEngine. This Privacy Policy explains how
                     information may be collected, used, and handled when
@@ -435,10 +607,8 @@ footer strong { color: #e8eaf4; }
                     By using FistEngine, you acknowledge that you have read
                     and understood this Privacy Policy.
                 </p>
-</section>
-<!-- INFORMATION -->
-<section class="policy-section">
-<h2>2. Information We Collect</h2>
+</section><section class="policy-section legal-section" id="privacy-information-we-collect">
+<h2 data-num="02" id="privacy-information-we-collect-title">2. Information We Collect</h2>
 <p>
                     FistEngine is designed primarily as a content discovery
                     and download platform. We do not require visitors to
@@ -460,10 +630,8 @@ footer strong { color: #e8eaf4; }
 <li>Date and time of visits</li>
 <li>General website usage information</li>
 </ul>
-</section>
-<!-- COOKIES -->
-<section class="policy-section">
-<h2>3. Cookies</h2>
+</section><section class="policy-section legal-section" id="privacy-cookies">
+<h2 data-num="03" id="privacy-cookies-title">3. Cookies</h2>
 <p>
                     FistEngine may use cookies and similar technologies to
                     improve website functionality, remember preferences,
@@ -475,10 +643,8 @@ footer strong { color: #e8eaf4; }
                     website. You can usually control or disable cookies
                     through your browser settings.
                 </p>
-</section>
-<!-- ADS -->
-<section class="policy-section">
-<h2>4. Advertising</h2>
+</section><section class="policy-section legal-section" id="privacy-advertising">
+<h2 data-num="04" id="privacy-advertising-title">4. Advertising</h2>
 <p>
                     FistEngine may display advertisements provided by
                     third-party advertising networks.
@@ -496,10 +662,8 @@ footer strong { color: #e8eaf4; }
                         on FistEngine.
                     </p>
 </div>
-</section>
-<!-- THIRD PARTY LINKS -->
-<section class="policy-section">
-<h2>5. Third-Party Websites and Links</h2>
+</section><section class="policy-section legal-section" id="privacy-third-party-websites-and-links">
+<h2 data-num="05" id="privacy-third-party-websites-and-links-title">5. Third-Party Websites and Links</h2>
 <p>
                     FistEngine may contain links to external websites,
                     download hosts, services, advertisements, or other
@@ -511,10 +675,8 @@ footer strong { color: #e8eaf4; }
                     FistEngine is not responsible for the privacy practices,
                     content, or policies of external websites.
                 </p>
-</section>
-<!-- DOWNLOADS -->
-<section class="policy-section">
-<h2>6. Downloads and External Files</h2>
+</section><section class="policy-section legal-section" id="privacy-downloads-and-external-files">
+<h2 data-num="06" id="privacy-downloads-and-external-files-title">6. Downloads and External Files</h2>
 <p>
                     FistEngine may provide links to applications, games,
                     files, ports, or external download locations.
@@ -525,10 +687,8 @@ footer strong { color: #e8eaf4; }
                     compatibility, permissions, file integrity, and the
                     source of the file where appropriate.
                 </p>
-</section>
-<!-- CHILDREN -->
-<section class="policy-section">
-<h2>7. Children's Privacy</h2>
+</section><section class="policy-section legal-section" id="privacy-children-s-privacy">
+<h2 data-num="07" id="privacy-children-s-privacy-title">7. Children's Privacy</h2>
 <p>
                     FistEngine does not knowingly seek to collect personal
                     information from children.
@@ -539,10 +699,8 @@ footer strong { color: #e8eaf4; }
                     that the information can be reviewed and appropriate
                     action can be taken.
                 </p>
-</section>
-<!-- SECURITY -->
-<section class="policy-section">
-<h2>8. Data Security</h2>
+</section><section class="policy-section legal-section" id="privacy-data-security">
+<h2 data-num="08" id="privacy-data-security-title">8. Data Security</h2>
 <p>
                     We take reasonable steps to maintain the security of
                     information associated with our website. However, no
@@ -550,10 +708,8 @@ footer strong { color: #e8eaf4; }
                     storage system can be guaranteed to be completely
                     secure.
                 </p>
-</section>
-<!-- DATA RETENTION -->
-<section class="policy-section">
-<h2>9. Data Retention</h2>
+</section><section class="policy-section legal-section" id="privacy-data-retention">
+<h2 data-num="09" id="privacy-data-retention-title">9. Data Retention</h2>
 <p>
                     FistEngine generally does not intentionally maintain
                     personal user profiles for ordinary visitors.
@@ -562,10 +718,8 @@ footer strong { color: #e8eaf4; }
                     retained according to the policies and retention
                     practices of those services.
                 </p>
-</section>
-<!-- YOUR RIGHTS -->
-<section class="policy-section">
-<h2>10. Your Choices and Rights</h2>
+</section><section class="policy-section legal-section" id="privacy-your-choices-and-rights">
+<h2 data-num="10" id="privacy-your-choices-and-rights-title">10. Your Choices and Rights</h2>
 <p>
                     Depending on your location and applicable law, you may
                     have certain rights regarding personal information,
@@ -577,10 +731,8 @@ footer strong { color: #e8eaf4; }
                     provided below. We may need additional information to
                     verify and process a request.
                 </p>
-</section>
-<!-- CHANGES -->
-<section class="policy-section">
-<h2>11. Changes to This Privacy Policy</h2>
+</section><section class="policy-section legal-section" id="privacy-changes-to-this-privacy-policy">
+<h2 data-num="11" id="privacy-changes-to-this-privacy-policy-title">11. Changes to This Privacy Policy</h2>
 <p>
                     FistEngine may update this Privacy Policy from time to
                     time as the website, services, technologies, or legal
@@ -591,16 +743,89 @@ footer strong { color: #e8eaf4; }
                     a revised "Last Updated" date.
                 </p>
 </section>
+<div class="legal-image-break">
+<img alt="Digital privacy and security themed image" decoding="async" loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToE1Ljrmi3UXrI2dZ3rZLnEe8fb5B1gSrY1PA-z3YIU1RpPLDunIWC0Zhm&s=10?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/>
+<div><strong>A note about privacy</strong><p>External hosting, analytics, advertising, and linked services may be subject to their own practices. Review those providers’ notices when relevant.</p></div>
+</div>
+</article>
 </div>
 </main>
-<!-- FOOTER -->
 <footer>
-<p>
-            © 2026 <strong>FistENGINE</strong>. All rights reserved.
-        </p>
-<p style="margin-top:8px;">
-            Apps • Games • MODs • PC Software
-        </p>
+<div class="footer-inner">
+<div class="footer-grid">
+<div class="footer-brand">
+<a aria-label="FistENGINE home" class="footer-logo" href="index.html"><span class="footer-logo-icon"><img alt="" src="favicon.png"/></span><span class="footer-logo-word">Fist<span>ENGINE</span></span></a>
+<p>FistENGINE is a modern marketplace for discovering Android apps, PC software, games and useful tools.</p>
+</div>
+<div class="footer-column"><h4>FistENGINE</h4><a href="about-us.html">About us</a><a aria-current="page" href="privacy-policy.html">Privacy policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact Us</a></div>
+<div class="footer-column"><h4>FOLLOW</h4><a href="https://x.com/appexiodev" rel="noopener noreferrer" target="_blank">X / Twitter</a><a href="https://www.instagram.com/appexiodev" rel="noopener noreferrer" target="_blank">Instagram</a></div>
+</div>
+<div class="copyright"><span>© 2026 FistENGINE. All rights reserved.</span><span>Android • PC • Games</span></div>
+</div>
 </footer>
+<script>
+    (() => {
+      // The compact phone header expands search only when tapped.
+      const header = document.getElementById("siteHeader");
+      const searchWrapper = document.getElementById("searchWrapper");
+      const searchBox = document.getElementById("navSearch");
+      const searchInput = document.getElementById("siteSearch");
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const drawerShade = document.getElementById("mobileDrawerShade");
+      const drawer = document.getElementById("mobileDrawer");
+      const isMobile = () => window.matchMedia("(max-width: 850px)").matches;
+
+      function setMenu(open) {
+        document.body.classList.toggle("menu-open", open);
+        mobileMenuButton.setAttribute("aria-expanded", String(open));
+        mobileMenuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        mobileMenuButton.innerHTML = open
+          ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+          : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+      }
+      function setSearchExpanded(open) {
+        header.classList.toggle("search-expanded", open);
+        if (open) window.setTimeout(() => searchInput.focus(), 20);
+      }
+
+      searchBox.addEventListener("click", (event) => {
+        if (isMobile() && !header.classList.contains("search-expanded")) {
+          event.preventDefault();
+          setSearchExpanded(true);
+        }
+      });
+      searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          searchInput.value = "";
+          setSearchExpanded(false);
+          searchInput.blur();
+        } else if (event.key === "Enter") {
+          event.preventDefault();
+          const query = searchInput.value.trim();
+          if (query) window.location.href = `index.html?search=${encodeURIComponent(query)}#games`;
+        }
+      });
+      document.addEventListener("click", (event) => {
+        if (isMobile() && header.classList.contains("search-expanded") && !searchWrapper.contains(event.target)) {
+          setSearchExpanded(false);
+        }
+      });
+      mobileMenuButton.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+      drawerShade.addEventListener("click", () => setMenu(false));
+      drawer.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMenu(false);
+          if (header.classList.contains("search-expanded")) setSearchExpanded(false);
+        }
+      });
+      window.addEventListener("resize", () => {
+        if (!isMobile()) {
+          setMenu(false);
+          setSearchExpanded(false);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
