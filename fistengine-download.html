@@ -2866,11 +2866,7 @@ footer .footer-inner {
 <span class="platform-copy"><span class="platform-name">FistEngine Desktop</span><span class="platform-subtitle">Windows · exe installer</span></span>
 <span class="platform-tag">Latest</span>
 </button>
-<button aria-controls="download-panel" aria-selected="false" class="platform-option" data-platform="android" id="tab-android" role="tab" type="button">
-<span aria-hidden="true" class="platform-icon"><i class="fa-brands fa-android"></i></span>
-<span class="platform-copy"><span class="platform-name">FistEngine Android</span><span class="platform-subtitle">APK package</span></span>
-<span class="platform-tag pending">Latest</span>
-</button>
+
 </div>
 <section aria-labelledby="tab-desktop" aria-live="polite" class="download-details" id="download-panel" role="tabpanel">
 <div class="details-topline"><span class="details-kicker" id="detail-kicker">WINDOWS RELEASE</span><span class="availability" id="detail-status">Installer built</span></div>
@@ -2920,13 +2916,7 @@ footer .footer-inner {
       kicker: 'WINDOWS RELEASE', status: 'Installer built', pending: false,
       title: 'FistEngine .exe', description: 'Install FistEngine on your Windows PC and launch it from your desktop',
       platform: 'Windows PC', pack: 'EXE installer', version: '1.0.0', size: '116 MB',
-      button: 'Install .exe', foot: 'Download The Experience', url: windowsRelease
-    },
-    android: {
-      kicker: 'ANDROID RELEASE', status: 'Installer built', pending: false,
-      title: 'FistEngine .apk', description: 'Install FistEngine on you Android Device and use it there',
-      platform: 'Android phone', pack: 'APK package', version: '1.0.0', size: 'Not published yet',
-      button: 'Install .Apk', foot: 'Download The Experience', url: androidRelease
+      button: 'Install FistEngine', foot: 'Download The Experience', url: windowsRelease
     }
   };
   function selectPlatform(key, focus=false) {
