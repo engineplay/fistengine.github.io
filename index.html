@@ -5932,21 +5932,20 @@ footer { background:#09151f !important; border-color:rgba(145,183,209,.12) !impo
       return;
     }
     const pageTop = catalogSection.getBoundingClientRect().top + window.scrollY;
-    // Collapse as the app-card section approaches the top of the viewport.
     compactStart = Math.max(180, pageTop - 125);
   }
 
   function updateCompactState() {
     const shouldCompact = window.scrollY >= compactStart;
     header.classList.toggle('is-compact', shouldCompact);
-    if (!shouldCompact) header.classList.remove('search-expanded');
+    if (!shouldCompact && document.activeElement !== searchInput) {
+      header.classList.remove('search-expanded');
+    }
   }
 
   if (searchLabel) {
     searchLabel.addEventListener('click', function (event) {
-      // Desktop keeps a permanent full search field in its slim toolbar.
       if (window.matchMedia('(min-width: 851px)').matches) return;
-      if (!header.classList.contains('is-compact') && !window.matchMedia('(max-width: 600px)').matches) return;
       if (!header.classList.contains('search-expanded')) {
         event.preventDefault();
         header.classList.add('search-expanded');
@@ -5994,6 +5993,7 @@ footer { background:#09151f !important; border-color:rgba(145,183,209,.12) !impo
   updateCompactState();
 })();
 </script>
+
 
 
 <style id="fistengine-slim-desktop-sidebar">
