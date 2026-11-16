@@ -2500,13 +2500,353 @@ footer .footer-inner {
   .platform-option, .platform-option:before, .platform-option:after { transition: none !important; }
 }
 </style>
+<style id="slim-navbar-override">
+  /* Slim Desktop Navbar */
+  header.header {
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+
+  header.header .nav {
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+
+  /* Scale down logo, search bar, and upload button to match */
+  header.header .logo-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  header.header .logo-word {
+    font-size: 18px !important;
+  }
+
+  header.header .nav-search {
+    height: 34px !important;
+  }
+
+  header.header .archive-upload-btn {
+    min-height: 32px !important;
+    padding: 0 12px !important;
+  }
+
+  /* Slim Mobile Navbar */
+  @media (max-width: 640px) {
+    header.header {
+      height: auto !important;
+      min-height: 48px !important;
+    }
+
+    header.header .nav {
+      min-height: 48px !important;
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
+      gap: 6px !important;
+    }
+
+    header.header .nav-search {
+      height: 34px !important;
+    }
+  }
+</style>
+<style id="ultra-slim-navbar">
+  /* Push page content down by the exact height of the fixed navbar */
+  body {
+    padding-top: 46px !important;
+  }
+
+  /* Fixed Ultra-Slim 46px Top Bar */
+  header.header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    height: 46px !important;
+    min-height: 46px !important;
+  }
+
+  header.header .nav {
+    height: 46px !important;
+    min-height: 46px !important;
+    padding-left: 18px !important;
+    padding-right: 14px !important;
+    gap: 14px !important;
+  }
+
+  /* Compact logo & nav links */
+  header.header .logo-icon {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 7px !important;
+  }
+
+  header.header .logo-word {
+    font-size: 16px !important;
+  }
+
+  header.header .top-nav-link {
+    font-size: 10px !important;
+    padding: 0 10px !important;
+  }
+
+  /* Shift search bar right & make it sleek */
+  header.header .search-wrapper {
+    margin-left: auto !important;
+    max-width: 340px !important;
+  }
+
+  header.header .nav-search {
+    height: 30px !important;
+    padding: 0 11px !important;
+    border-radius: 4px !important;
+  }
+
+  header.header .nav-search input {
+    font-size: 11px !important;
+  }
+
+  /* Sleek UPLOAD button tucked on the right */
+  header.header .archive-upload-btn {
+    min-height: 28px !important;
+    padding: 0 11px !important;
+    font-size: 9px !important;
+    gap: 6px !important;
+  }
+
+  header.header .archive-upload-btn i {
+    font-size: 12px !important;
+  }
+
+  /* Fixed Slim Mobile View */
+  @media (max-width: 640px) {
+    body {
+      padding-top: 78px !important; /* Accounts for the 2-row mobile header */
+    }
+
+    header.header {
+      height: auto !important;
+      min-height: 44px !important;
+    }
+
+    header.header .nav {
+      min-height: 44px !important;
+      padding: 5px 10px !important;
+      gap: 6px !important;
+    }
+
+    header.header .nav-search {
+      height: 30px !important;
+    }
+  }
+</style>
+<style id="download-button-refresh">
+  /* Make the Install button compact horizontally & match the site's cyan-blue theme */
+  #download-button.download-action {
+    width: auto !important;
+    min-width: 175px !important;
+    max-width: fit-content !important;
+    min-height: 40px !important;
+    padding: 0 20px !important;
+    margin: 4px 0 0 !important; /* Left-aligned; change to '4px auto 0' to center */
+    
+    /* Deep Steam-cyan gradient matching your active platform card & upload button */
+    background: linear-gradient(180deg, #2d7ba8 0%, #1b5375 100%) !important;
+    border: 1px solid rgba(102, 192, 244, 0.55) !important;
+    border-radius: 4px !important;
+    color: #f0f8ff !important;
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    letter-spacing: 0.3px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+    transition: filter 0.18s ease, transform 0.18s ease, border-color 0.18s ease !important;
+  }
+
+  #download-button.download-action:hover:not([aria-disabled="true"]) {
+    filter: brightness(1.14) !important;
+    border-color: #8bd5ff !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Align the footnote neatly under the left-aligned button */
+  #download-footnote.download-footnote {
+    text-align: left !important;
+    margin-top: 8px !important;
+  }
+</style>
+<style id="download-button-refresh">
+  /* 1. Make the button compact & centered with the matching theme color */
+  #download-button.download-action {
+    position: relative !important;
+    z-index: 2 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    width: auto !important;
+    min-width: 170px !important;
+    max-width: fit-content !important;
+    min-height: 40px !important;
+    padding: 0 22px !important;
+    margin: 6px auto 0 !important; /* Centers the button horizontally */
+
+    /* Deep Steam-cyan gradient matching your theme */
+    background: linear-gradient(180deg, #2d7ba8 0%, #1b5375 100%) !important;
+    border: 1px solid rgba(102, 192, 244, 0.55) !important;
+    border-radius: 4px !important;
+    color: #f0f8ff !important;
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    letter-spacing: 0.3px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+    transition: filter 0.18s ease, transform 0.18s ease, border-color 0.18s ease !important;
+  }
+
+  #download-button.download-action:hover:not([aria-disabled="true"]) {
+    filter: brightness(1.14) !important;
+    border-color: #8bd5ff !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* 2. Add the Left & Right Horizontal Lines extending from the button */
+  #download-button.download-action::before,
+  #download-button.download-action::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    width: 160px !important; /* Extends to the left & right edges of the card */
+    height: 1px !important;
+    pointer-events: none !important;
+  }
+
+  /* Left horizontal line (fades smoothly toward the left edge) */
+  #download-button.download-action::before {
+    right: calc(100% + 14px) !important;
+    background: linear-gradient(90deg, transparent, rgba(102, 192, 244, 0.38)) !important;
+  }
+
+  /* Right horizontal line (fades smoothly toward the right edge) */
+  #download-button.download-action::after {
+    left: calc(100% + 14px) !important;
+    background: linear-gradient(90deg, rgba(102, 192, 244, 0.38), transparent) !important;
+  }
+
+  /* Keep the lines clipped neatly inside the card on smaller screens */
+  #download-panel.download-details {
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+
+  /* Keep the top text and spec grid left-aligned so only the button is centered */
+  #download-panel .details-topline,
+  #download-panel .details-title,
+  #download-panel .details-description,
+  #download-panel .spec-grid {
+    text-align: left !important;
+  }
+
+  /* Center the footnote right below the centered button */
+  #download-footnote.download-footnote {
+    text-align: center !important;
+    margin-top: 9px !important;
+  }
+</style>
+<style id="remove-choose-version">
+  /* Hide the heading if you didn't delete it from HTML */
+  .download-title {
+    display: none !important;
+  }
+
+  /* Pull the entire download section & cards up cleanly */
+  .download-stage {
+    padding-top: 0 !important;
+  }
+
+  .download-layout {
+    padding-top: 18px !important; /* Adjust this number if you want it even higher */
+  }
+
+  /* Keep a clean gap between "FISTENGINE / DOWNLOADS" and the two cards */
+  .download-left::before {
+    margin-bottom: 14px !important;
+  }
+
+  /* Make the platform cards slightly more compact vertically so everything fits comfortably */
+  .platform-option {
+    min-height: 112px !important;
+    padding: 14px 15px !important;
+  }
+</style>
+
+
+<script>
+  (() => {
+    const nav = document.querySelector('header.header .nav');
+    const links = document.querySelector('header.header .top-store-nav');
+    if (!nav || !links || document.getElementById('mobileMenuBtn')) return;
+
+    // Create the Menu button with a bars icon + downward arrow
+    const btn = document.createElement('button');
+    btn.id = 'mobileMenuBtn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Open Menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<i aria-hidden="true" class="fa-solid fa-bars"></i><span>MENU</span><i aria-hidden="true" class="fa-solid fa-chevron-down menu-arrow"></i>';
+    nav.appendChild(btn);
+
+    // Toggle menu open/close
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close menu automatically when tapping outside
+    document.addEventListener('click', (e) => {
+      if (links.classList.contains('is-open') && !links.contains(e.target) && !btn.contains(e.target)) {
+        links.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+
+<script>
+  (() => {
+    const nav = document.querySelector('header.header .nav');
+    const links = document.querySelector('header.header .top-store-nav');
+    if (!nav || !links) return;
+
+    // Automatically adds the mobile menu button next to UPLOAD without editing your header HTML
+    const btn = document.createElement('button');
+    btn.id = 'mobileMenuBtn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Toggle Menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<i aria-hidden="true" class="fa-solid fa-bars"></i>';
+    nav.appendChild(btn);
+
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.innerHTML = open
+        ? '<i aria-hidden="true" class="fa-solid fa-xmark"></i>'
+        : '<i aria-hidden="true" class="fa-solid fa-bars"></i>';
+    });
+  })();
+</script>
+
 
 </head>
 <body>
 <header class="header"><nav class="nav">
 <a aria-label="AppExio Store home" class="logo" href="index.html"><div class="logo-icon"><img alt="" src="favicon.png"/></div><span class="logo-word">Fist<span>ENGINE</span></span></a>
 <nav aria-label="Quick links" class="top-store-nav">
-<a class="top-nav-link" href="https://appexiodev.github.io/contact.html">CONTACT</a>
+<a class="top-nav-link" href="https://fistengine.github.io/index.html">HOME</a>
+<a class="top-nav-link" href="https://fistengine.github.io/contact.html">CONTACT</a>
 <a class="top-nav-link" href="about-us.html">ABOUT</a>
 <a class="top-nav-link" data-catalog-view="latest" href="index.html#games">LATEST RELEASES</a>
 </nav>
@@ -2519,17 +2859,17 @@ footer .footer-inner {
 <div class="download-stage">
 <div class="download-layout">
 <section aria-label="Choose a FistEngine download" class="download-left">
-<h1 class="download-title">Choose your version</h1>
+
 <div aria-label="Platform" class="platform-options" role="tablist">
 <button aria-controls="download-panel" aria-selected="true" class="platform-option" data-platform="desktop" id="tab-desktop" role="tab" type="button">
 <span aria-hidden="true" class="platform-icon"><i class="fa-brands fa-windows"></i></span>
-<span class="platform-copy"><span class="platform-name">FistEngine Desktop</span><span class="platform-subtitle">Windows PC · EXE installer</span></span>
-<span class="platform-tag">Ready</span>
+<span class="platform-copy"><span class="platform-name">FistEngine Desktop</span><span class="platform-subtitle">Windows · exe installer</span></span>
+<span class="platform-tag">Latest</span>
 </button>
 <button aria-controls="download-panel" aria-selected="false" class="platform-option" data-platform="android" id="tab-android" role="tab" type="button">
 <span aria-hidden="true" class="platform-icon"><i class="fa-brands fa-android"></i></span>
-<span class="platform-copy"><span class="platform-name">FistEngine APK</span><span class="platform-subtitle">Android phone · APK package</span></span>
-<span class="platform-tag pending">Coming soon</span>
+<span class="platform-copy"><span class="platform-name">FistEngine Android</span><span class="platform-subtitle">APK package</span></span>
+<span class="platform-tag pending">Latest</span>
 </button>
 </div>
 <section aria-labelledby="tab-desktop" aria-live="polite" class="download-details" id="download-panel" role="tabpanel">
@@ -2542,7 +2882,7 @@ footer .footer-inner {
 <div class="spec-item"><span class="spec-label">Version</span><span class="spec-value" id="detail-version">1.0.0</span></div>
 <div class="spec-item"><span class="spec-label">File size</span><span class="spec-value" id="detail-size">116 MB</span></div>
 </div>
-<a class="download-action" href="https://github.com/fistengine/fistengine.github.io/releases/latest/download/FistEngine-Setup.exe" id="download-button" rel="noopener noreferrer" target="_blank">
+<a class="download-action" href="https://ia601006.us.archive.org/0/items/fist-engine-installer-1.0.0/FistEngine%20Installer%201.0.0.exe" id="download-button" rel="noopener noreferrer" target="_blank">
 <i aria-hidden="true" class="fa-solid fa-download"></i><span id="download-button-label">Download for Windows</span><i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
 </a>
 <p class="download-footnote" id="download-footnote">EXE installer · Version 1.0.0 · 116 MB</p>
@@ -2550,15 +2890,15 @@ footer .footer-inner {
 </section>
 <section aria-label="FistEngine preview" class="download-right">
 <div class="video-window">
-<div aria-hidden="true" class="video-window-bar"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-bar-spacer"></span><span class="window-bar-label">VIDEO PREVIEW</span></div>
+<div aria-hidden="true" class="video-window-bar"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-bar-spacer"></span><span class="window-bar-label">The Experience</span></div>
 <div class="video-screen">
 <video aria-label="Looping animated blue technology preview" autoplay="" loop="" muted="" playsinline="" poster="https://fistengine.github.io/sss2.png" preload="metadata">
 <source src="https://motionbgs.com/media/10466/gta-vi-welcome-to-vice-city.960x540.mp4" type="video/mp4"/>
 </video>
 </div>
-<div class="video-status"><span>Preview running</span><span class="video-loop"><i aria-hidden="true" class="fa-solid fa-repeat"></i> LOOP</span></div>
+<div class="video-status"><span>Preview</span><span class="video-loop"><i aria-hidden="true" class="fa-solid fa-repeat"></i> LOOPS</span></div>
 </div>
-<p class="video-credit">Loop animation created for this page.</p>
+<p class="video-credit">FistENGINE</p>
 </section>
 </div>
 </div>
@@ -2572,21 +2912,21 @@ footer .footer-inner {
   const choices = [...document.querySelectorAll('.platform-option')];
   const panel = document.getElementById('download-panel');
   const $ = id => document.getElementById(id);
-  const windowsRelease = 'https://github.com/fistengine/fistengine.github.io/releases/latest/download/FistEngine-Setup.exe';
+  const windowsRelease = 'https://ia601006.us.archive.org/0/items/fist-engine-installer-1.0.0/FistEngine%20Installer%201.0.0.exe';
   // Update this URL when the signed/release APK is uploaded to GitHub Releases.
   const androidRelease = '';
   const data = {
     desktop: {
       kicker: 'WINDOWS RELEASE', status: 'Installer built', pending: false,
-      title: 'FistEngine Desktop', description: 'Install FistEngine on your Windows PC and launch it from your desktop.',
+      title: 'FistEngine .exe', description: 'Install FistEngine on your Windows PC and launch it from your desktop',
       platform: 'Windows PC', pack: 'EXE installer', version: '1.0.0', size: '116 MB',
-      button: 'Download for Windows', foot: 'EXE installer · Version 1.0.0 · 116 MB', url: windowsRelease
+      button: 'Install .exe', foot: 'Download The Experience', url: windowsRelease
     },
     android: {
-      kicker: 'ANDROID RELEASE', status: 'Release pending', pending: true,
-      title: 'FistEngine APK', description: 'The Android version is being prepared. The APK size and download link will appear when the Flutter release is ready.',
-      platform: 'Android phone', pack: 'APK package', version: 'Pending release', size: 'Not published yet',
-      button: 'APK coming soon', foot: 'Android package · Download link not published yet', url: androidRelease
+      kicker: 'ANDROID RELEASE', status: 'Installer built', pending: false,
+      title: 'FistEngine .apk', description: 'Install FistEngine on you Android Device and use it there',
+      platform: 'Android phone', pack: 'APK package', version: '1.0.0', size: 'Not published yet',
+      button: 'Install .Apk', foot: 'Download The Experience', url: androidRelease
     }
   };
   function selectPlatform(key, focus=false) {
@@ -2597,7 +2937,7 @@ footer .footer-inner {
       btn.tabIndex = active ? 0 : -1;
       if (focus && active) btn.focus();
       const tag = btn.querySelector('.platform-tag');
-      tag.textContent = btn.dataset.platform === 'desktop' ? 'Ready' : 'Coming soon';
+      tag.textContent = btn.dataset.platform === 'desktop' ? 'Latest' : 'Coming soon';
       tag.classList.toggle('pending', btn.dataset.platform === 'android');
     });
     panel.setAttribute('aria-labelledby', key === 'desktop' ? 'tab-desktop' : 'tab-android');
@@ -2652,5 +2992,401 @@ footer .footer-inner {
   selectPlatform('desktop');
 })();
 </script>
+<!-- PHONE-ONLY NAVBAR + MENU BUTTON WITH ARROW -->
+<style id="phone-only-menu-bar">
+  /* Hidden on PC/Desktop */
+  #mobileMenuBtn {
+    display: none;
+  }
+
+  /* Active ONLY on phones & small screens (768px and below) */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 46px !important;
+    }
+
+    header.header {
+      height: 46px !important;
+      min-height: 46px !important;
+    }
+
+    header.header .nav {
+      height: 46px !important;
+      min-height: 46px !important;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      padding: 0 12px !important;
+      gap: 7px !important;
+    }
+
+    /* 1. Logo & Name on the Left */
+    header.header .logo {
+      margin-right: auto !important;
+      flex: 0 0 auto !important;
+    }
+
+    /* 2. Hide search bar on phone to keep a single clean row */
+    header.header .search-wrapper {
+      display: none !important;
+    }
+
+    /* 3. Upload Button on the Right */
+    header.header .archive-upload-btn {
+      margin-left: 0 !important;
+      min-height: 28px !important;
+      padding: 0 10px !important;
+      font-size: 9px !important;
+      flex: 0 0 auto !important;
+    }
+
+    /* 4. Visible Menu Button with Arrow on the Far Right */
+    #mobileMenuBtn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 5px !important;
+      height: 28px !important;
+      padding: 0 9px !important;
+      border: 1px solid rgba(102, 192, 244, 0.38) !important;
+      border-radius: 4px !important;
+      background: #142737 !important;
+      color: #eaf7ff !important;
+      font-family: inherit !important;
+      font-size: 10px !important;
+      font-weight: 750 !important;
+      letter-spacing: 0.4px !important;
+      cursor: pointer !important;
+      flex: 0 0 auto !important;
+      transition: background 0.18s ease, border-color 0.18s ease !important;
+    }
+
+    #mobileMenuBtn:hover,
+    #mobileMenuBtn[aria-expanded="true"] {
+      background: #1f445e !important;
+      border-color: #66c0f4 !important;
+    }
+
+    /* Rotate arrow smoothly when open */
+    #mobileMenuBtn .menu-arrow {
+      font-size: 9px !important;
+      color: #8bd5ff !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    #mobileMenuBtn[aria-expanded="true"] .menu-arrow {
+      transform: rotate(180deg) !important;
+    }
+
+    /* 5. Dropdown Menu Panel */
+    header.header .top-store-nav {
+      display: none !important;
+      position: fixed !important;
+      top: 46px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      background: #0c1823 !important;
+      border-bottom: 1px solid rgba(102, 192, 244, 0.28) !important;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.6) !important;
+      padding: 8px 12px !important;
+      gap: 5px !important;
+      z-index: 9998 !important;
+    }
+
+    header.header .top-store-nav.is-open {
+      display: flex !important;
+    }
+
+    header.header .top-store-nav .top-nav-link {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 11px 12px !important;
+      font-size: 11px !important;
+      border-radius: 4px !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      color: #dcebf5 !important;
+    }
+
+    header.header .top-store-nav .top-nav-link::after {
+      display: none !important;
+    }
+  }
+</style>
+<!-- PHONE-ONLY NAVBAR + MENU BUTTON WITH ARROW -->
+<style id="phone-only-menu-bar">
+  /* Hidden on PC/Desktop */
+  #mobileMenuBtn {
+    display: none;
+  }
+
+  /* Active ONLY on phones & small screens (768px and below) */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 46px !important;
+    }
+
+    header.header {
+      height: 46px !important;
+      min-height: 46px !important;
+    }
+
+    header.header .nav {
+      height: 46px !important;
+      min-height: 46px !important;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      padding: 0 12px !important;
+      gap: 7px !important;
+    }
+
+    /* 1. Logo & Name on the Left */
+    header.header .logo {
+      margin-right: auto !important;
+      flex: 0 0 auto !important;
+    }
+
+    /* 2. Hide search bar on phone to keep a single clean row */
+    header.header .search-wrapper {
+      display: none !important;
+    }
+
+    /* 3. Upload Button on the Right */
+    header.header .archive-upload-btn {
+      margin-left: 0 !important;
+      min-height: 28px !important;
+      padding: 0 10px !important;
+      font-size: 9px !important;
+      flex: 0 0 auto !important;
+    }
+
+    /* 4. Visible Menu Button with Arrow on the Far Right */
+    #mobileMenuBtn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 5px !important;
+      height: 28px !important;
+      padding: 0 9px !important;
+      border: 1px solid rgba(102, 192, 244, 0.38) !important;
+      border-radius: 4px !important;
+      background: #142737 !important;
+      color: #eaf7ff !important;
+      font-family: inherit !important;
+      font-size: 10px !important;
+      font-weight: 750 !important;
+      letter-spacing: 0.4px !important;
+      cursor: pointer !important;
+      flex: 0 0 auto !important;
+      transition: background 0.18s ease, border-color 0.18s ease !important;
+    }
+
+    #mobileMenuBtn:hover,
+    #mobileMenuBtn[aria-expanded="true"] {
+      background: #1f445e !important;
+      border-color: #66c0f4 !important;
+    }
+
+    /* Rotate arrow smoothly when open */
+    #mobileMenuBtn .menu-arrow {
+      font-size: 9px !important;
+      color: #8bd5ff !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    #mobileMenuBtn[aria-expanded="true"] .menu-arrow {
+      transform: rotate(180deg) !important;
+    }
+
+    /* 5. Dropdown Menu Panel */
+    header.header .top-store-nav {
+      display: none !important;
+      position: fixed !important;
+      top: 46px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      background: #0c1823 !important;
+      border-bottom: 1px solid rgba(102, 192, 244, 0.28) !important;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.6) !important;
+      padding: 8px 12px !important;
+      gap: 5px !important;
+      z-index: 9998 !important;
+    }
+
+    header.header .top-store-nav.is-open {
+      display: flex !important;
+    }
+
+    header.header .top-store-nav .top-nav-link {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 11px 12px !important;
+      font-size: 11px !important;
+      border-radius: 4px !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      color: #dcebf5 !important;
+    }
+
+    header.header .top-store-nav .top-nav-link::after {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const nav = document.querySelector('header.header .nav');
+    const links = document.querySelector('header.header .top-store-nav');
+    if (!nav || !links || document.getElementById('mobileMenuBtn')) return;
+
+    // Create the Menu button with a bars icon + downward arrow
+    const btn = document.createElement('button');
+    btn.id = 'mobileMenuBtn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Open Menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<i aria-hidden="true" class="fa-solid fa-bars"></i><span>MENU</span><i aria-hidden="true" class="fa-solid fa-chevron-down menu-arrow"></i>';
+    nav.appendChild(btn);
+
+    // Toggle menu open/close
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close menu automatically when tapping outside
+    document.addEventListener('click', (e) => {
+      if (links.classList.contains('is-open') && !links.contains(e.target) && !btn.contains(e.target)) {
+        links.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+<style id="phone-only-menu-bar">
+  /* Hidden on PC/Desktop */
+  #mobileMenuBtn {
+    display: none;
+  }
+
+  /* Active ONLY on phones & small screens (768px and below) */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 46px !important;
+    }
+
+    header.header {
+      height: 46px !important;
+      min-height: 46px !important;
+    }
+
+    header.header .nav {
+      height: 46px !important;
+      min-height: 46px !important;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0 12px !important;
+      gap: 8px !important;
+    }
+
+    /* 1. Logo & Name on the Left */
+    header.header .logo {
+      margin-right: auto !important;
+      flex: 0 0 auto !important;
+    }
+
+    /* 2. Hide search bar and UPLOAD button on mobile */
+    header.header .search-wrapper,
+    header.header .archive-upload-btn {
+      display: none !important;
+    }
+
+    /* 3. Menu Button with Arrow on the Far Right */
+    #mobileMenuBtn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 5px !important;
+      height: 28px !important;
+      padding: 0 10px !important;
+      border: 1px solid rgba(102, 192, 244, 0.38) !important;
+      border-radius: 4px !important;
+      background: #142737 !important;
+      color: #eaf7ff !important;
+      font-family: inherit !important;
+      font-size: 10px !important;
+      font-weight: 750 !important;
+      letter-spacing: 0.4px !important;
+      cursor: pointer !important;
+      flex: 0 0 auto !important;
+      transition: background 0.18s ease, border-color 0.18s ease !important;
+    }
+
+    #mobileMenuBtn:hover,
+    #mobileMenuBtn[aria-expanded="true"] {
+      background: #1f445e !important;
+      border-color: #66c0f4 !important;
+    }
+
+    #mobileMenuBtn .menu-arrow {
+      font-size: 9px !important;
+      color: #8bd5ff !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    #mobileMenuBtn[aria-expanded="true"] .menu-arrow {
+      transform: rotate(180deg) !important;
+    }
+
+    /* 4. Dropdown Menu Panel */
+    header.header .top-store-nav {
+      display: none !important;
+      position: fixed !important;
+      top: 46px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      background: #0c1823 !important;
+      border-bottom: 1px solid rgba(102, 192, 244, 0.28) !important;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.6) !important;
+      padding: 8px 12px !important;
+      gap: 5px !important;
+      z-index: 9998 !important;
+    }
+
+    header.header .top-store-nav.is-open {
+      display: flex !important;
+    }
+
+    header.header .top-store-nav .top-nav-link {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 11px 12px !important;
+      font-size: 11px !important;
+      border-radius: 4px !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      color: #dcebf5 !important;
+    }
+
+    header.header .top-store-nav .top-nav-link::after {
+      display: none !important;
+    }
+  }
+</style>
+
 </body>
 </html>
