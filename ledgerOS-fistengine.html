@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ledgerOS — Know your Buisness</title>
+
+    <link rel="canonical" href="https://fistengine.github.io/ledgerOS-fistengine.html">
+    
+ <!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://fistengine.github.io/ledger.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://fistengine.github.io/ledger.png">
+<link rel="apple-touch-icon" href="https://fistengine.github.io/ledger.png">
+    
+<meta name="description"
+      content="Meet LedgerOS — a central workspace for the records that keep your business moving. Organise inventory, sales, purchases, expenses, customers and suppliers, then bring the picture together with clear business reports.">
+
+<meta name="theme-color" content="#0b0d12">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ledgerOS — Know your Buisness">
+<meta property="og:description" content="A central workspace for the records that keep your business moving. Organise inventory, sales, purchases, expenses, customers and suppliers, then bring the picture together with clear business reports.">
+<meta property="og:url" content="https://fistengine.github.io/ledgerOS-fistengine.html">
+<meta property="og:image" content="https://fistengine.github.io/ledger.png">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ledgerOS — Know your Buisness">
+<meta name="twitter:description" content="A central workspace for the records that keep your business moving. Organise inventory, sales, purchases, expenses, customers and suppliers, then bring the picture together with clear business reports.">
+<meta name="twitter:image" content="https://fistengine.github.io/ledger.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ledgerOS",
+      "url": "https://fistengine.github.io/ledgerOS-fistengine.html",
+      "description": "A central workspace for the records that keep your business moving. Organise inventory, sales, purchases, expenses, customers and suppliers, then bring the picture together with clear business reports."
+    }
+    </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080d18;
+      --bg-2: #0b1221;
+      --panel: rgba(17, 27, 46, .78);
+      --panel-solid: #111b2e;
+      --line: rgba(177, 195, 224, .13);
+      --text: #f4f7fc;
+      --muted: #a5b1c5;
+      --muted-2: #71819b;
+      --gold: #e8bd72;
+      --gold-2: #f4d7a2;
+      --mint: #6ed7ba;
+      --blue: #82aaff;
+      --radius: 22px;
+      --shadow: 0 24px 80px rgba(0,0,0,.32);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 75% 5%, rgba(66, 103, 171, .18), transparent 35%),
+        radial-gradient(ellipse at 5% 33%, rgba(28, 135, 116, .10), transparent 30%), var(--bg);
+      font-family: 'DM Sans', sans-serif; line-height: 1.6; overflow-x: hidden;
+    }
+    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .18; z-index: -1;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 54px 54px; mask-image: linear-gradient(to bottom, black, transparent 82%); }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid rgba(177,195,224,.09); background: rgba(8,13,24,.78); backdrop-filter: blur(18px); }
+    .nav { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 190px; }
+    .brand img { width: 42px; height: 42px; border-radius: 13px; object-fit: cover; box-shadow: 0 7px 24px rgba(0,0,0,.3); }
+    .brand-name { display: grid; line-height: 1.12; }
+    .brand-name strong { font: 800 19px 'Manrope', sans-serif; letter-spacing: -.7px; }
+    .brand-name span { margin-top: 4px; font-size: 9px; letter-spacing: 2px; color: var(--muted-2); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: #aab6c9; font-size: 13px; font-weight: 600; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: var(--gold-2); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .menu-toggle { display: none; width: 42px; height: 42px; color: var(--text); background: #131e31; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid transparent; padding: 13px 19px; border-radius: 12px; font-size: 13px; line-height: 1.2; font-weight: 800; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #17130d; background: linear-gradient(135deg, #f1d49d, #d9a95d); box-shadow: 0 10px 30px rgba(218,171,98,.17); }
+    .btn-primary:hover { box-shadow: 0 14px 36px rgba(218,171,98,.27); }
+    .btn-outline { color: #eef3fb; background: rgba(255,255,255,.035); border-color: rgba(193,207,229,.2); }
+    .btn-outline:hover { background: rgba(255,255,255,.075); border-color: rgba(232,189,114,.5); }
+    .btn-dark { color: #f3f6fc; background: #111b2e; border-color: var(--line); }
+    .btn svg { width: 16px; height: 16px; flex: 0 0 auto; }
+    .hero { position: relative; padding: 24px 0 74px; }
+
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 50px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 7px 11px; border: 1px solid rgba(110,215,186,.22); background: rgba(58,155,130,.09); border-radius: 999px; color: #9ae2cc; text-transform: uppercase; letter-spacing: 1.5px; font-size: 10px; font-weight: 800; }
+    .eyebrow i { width: 7px; height: 7px; display: inline-block; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px rgba(110,215,186,.7); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 650px; margin: 0 0 20px; font: 800 clamp(42px, 5.3vw, 70px)/1.08 'Manrope', sans-serif; letter-spacing: -3.4px; }
+
+    .gradient-text { color: var(--gold-2); background: linear-gradient(100deg, #fff0d1 4%, #e5bc78 48%, #a9d9d0 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-copy { max-width: 560px; color: #aab7ca; font-size: 16px; line-height: 1.85; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 29px 0 23px; }
+    .micro-note { display: flex; align-items: center; gap: 8px; color: var(--muted-2); font-size: 11px; }
+    .micro-note svg { width: 14px; color: var(--mint); }
+    .hero-visual { position: relative; min-width: 0; padding: 16px 0 25px 15px; }
+    .glow { position: absolute; width: 78%; height: 70%; top: 14%; left: 12%; background: rgba(87,139,198,.2); filter: blur(75px); border-radius: 50%; }
+    .preview-shell { position: relative; padding: 12px; border: 1px solid rgba(185,204,234,.2); border-radius: 22px; background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.025)); box-shadow: 0 35px 90px rgba(0,0,0,.48); transform: perspective(1200px) rotateY(-5deg) rotateX(2deg); }
+    .preview-top { height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 7px 9px; color: #8796ac; font-size: 9px; }
+    .preview-top i { width: 7px; height: 7px; display: block; border-radius: 50%; background: #58657a; }
+    .preview-top span { margin-left: auto; letter-spacing: 1.2px; text-transform: uppercase; }
+    .preview-image { display: block; width: 100%; max-height: 350px; object-fit: cover; object-position: top; border-radius: 12px; background: #101a2b; border: 1px solid rgba(255,255,255,.08); }
+    .float-card { position: absolute; display: flex; align-items: center; gap: 11px; padding: 13px 15px; border: 1px solid rgba(205,218,239,.17); border-radius: 15px; background: rgba(15,25,42,.92); box-shadow: 0 18px 45px rgba(0,0,0,.35); backdrop-filter: blur(16px); }
+    .float-card.one { left: -26px; bottom: 5px; }
+    .float-card.two { right: -20px; top: 36px; }
+    .float-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: var(--gold-2); background: rgba(232,189,114,.12); }
+    .float-icon.mint { color: var(--mint); background: rgba(110,215,186,.11); }
+    .float-icon svg { width: 17px; }
+    .float-card strong { display: block; font-size: 11px; }
+    .float-card small { display: block; margin-top: 2px; color: var(--muted); font-size: 9px; }
+    .trust-strip { padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .trust-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 17px 30px; }
+    .trust-label { color: var(--muted-2); font-size: 10px; text-transform: uppercase; letter-spacing: 1.4px; font-weight: 800; }
+    .trust-item { display: inline-flex; align-items: center; gap: 9px; color: #c6d0df; font-size: 12px; font-weight: 700; }
+    .trust-item svg { width: 17px; height: 17px; color: var(--mint); }
+    section { padding: 100px 0; }
+    .section-head { max-width: 680px; margin: 0 auto 48px; text-align: center; }
+    .kicker { color: var(--gold); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+    h2 { margin: 13px 0 14px; font: 800 clamp(30px, 4vw, 46px)/1.16 'Manrope', sans-serif; letter-spacing: -1.8px; }
+    .section-head p, .section-intro { color: var(--muted); font-size: 14px; line-height: 1.85; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .feature-card { min-height: 220px; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(145deg, rgba(21,33,54,.85), rgba(12,20,34,.72)); transition: transform .25s, border-color .25s, background .25s; }
+    .feature-card:hover { transform: translateY(-5px); border-color: rgba(232,189,114,.35); background: linear-gradient(145deg, rgba(29,43,66,.92), rgba(13,22,37,.9)); }
+    .feature-icon { width: 43px; height: 43px; display: grid; place-items: center; margin-bottom: 21px; border-radius: 13px; color: var(--gold-2); background: rgba(232,189,114,.1); border: 1px solid rgba(232,189,114,.12); }
+    .feature-icon svg { width: 20px; height: 20px; }
+    .feature-card h3 { margin-bottom: 8px; font: 700 16px 'Manrope', sans-serif; }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .screens-section { background: linear-gradient(180deg, transparent, rgba(19,31,51,.48), transparent); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .shot { position: relative; overflow: hidden; padding: 7px; border-radius: 15px; border: 1px solid rgba(184,203,231,.15); background: rgba(255,255,255,.045); cursor: zoom-in; transition: transform .25s, border-color .25s, box-shadow .25s; }
+    .shot:hover { transform: translateY(-5px); border-color: rgba(232,189,114,.48); box-shadow: 0 18px 42px rgba(0,0,0,.27); }
+    .shot img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; border-radius: 9px; background: #111b2c; }
+    .shot-caption { display: flex; align-items: center; justify-content: space-between; padding: 11px 5px 5px; color: #c5d0df; font-size: 10px; font-weight: 700; }
+    .shot-caption span:last-child { color: var(--muted-2); font-size: 9px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; counter-reset: step; }
+    .step { position: relative; padding: 26px 24px; border-radius: 18px; border: 1px solid var(--line); background: rgba(17,27,46,.58); counter-increment: step; }
+    .step::before { content: '0' counter(step); display: inline-block; margin-bottom: 24px; color: var(--gold); font: 800 23px 'Manrope', sans-serif; }
+    .step h3 { margin-bottom: 8px; font: 700 16px 'Manrope', sans-serif; }
+    .step p { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0; }
+    .access-section { padding-top: 80px; }
+    .access-panel { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; overflow: hidden; padding: 46px; border: 1px solid rgba(232,189,114,.25); border-radius: 26px; background: radial-gradient(circle at 100% 0%, rgba(124,155,204,.19), transparent 39%), linear-gradient(130deg, #17253a, #101a2c 64%, #111b2d); box-shadow: var(--shadow); }
+    .access-panel::after { content: ''; position: absolute; width: 290px; height: 290px; right: 20%; bottom: -230px; border-radius: 50%; border: 1px solid rgba(232,189,114,.22); box-shadow: 0 0 0 25px rgba(232,189,114,.025), 0 0 0 50px rgba(232,189,114,.02); pointer-events: none; }
+    .access-copy { position: relative; z-index: 1; }
+    .access-copy h2 { max-width: 520px; }
+    .access-copy p { max-width: 520px; color: #adbbcf; font-size: 13px; line-height: 1.9; }
+    .access-points { display: grid; gap: 11px; margin: 22px 0 28px; }
+    .access-points div { display: flex; align-items: center; gap: 10px; color: #d5deeb; font-size: 12px; }
+    .access-points svg { width: 16px; height: 16px; color: var(--mint); }
+    .plan-card { position: relative; z-index: 1; padding: 27px; border: 1px solid rgba(230,239,252,.16); border-radius: 19px; background: rgba(7,13,24,.58); box-shadow: 0 20px 45px rgba(0,0,0,.2); }
+    .plan-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .plan-top strong { font: 700 15px 'Manrope', sans-serif; }
+    .free-badge { padding: 5px 9px; color: #a5ead5; background: rgba(74,176,146,.13); border: 1px solid rgba(110,215,186,.2); border-radius: 30px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; }
+    .price { display: flex; align-items: baseline; gap: 7px; margin: 23px 0 4px; }
+    .price strong { font: 800 48px 'Manrope', sans-serif; letter-spacing: -2.5px; }
+    .price span { color: var(--muted); font-size: 12px; }
+    .plan-caption { color: var(--muted-2); font-size: 10px; }
+    .plan-divider { height: 1px; margin: 22px 0; background: var(--line); }
+    .plan-list { display: grid; gap: 12px; margin: 0 0 24px; padding: 0; list-style: none; }
+    .plan-list li { display: flex; gap: 9px; align-items: flex-start; color: #c6d0df; font-size: 11px; }
+    .plan-list svg { width: 14px; height: 14px; color: var(--mint); flex: 0 0 auto; margin-top: 2px; }
+    .plan-card .btn { width: 100%; }
+    .plan-note { margin: 12px 0 0; color: var(--muted-2); font-size: 9px; text-align: center; }
+    .faq-grid { max-width: 850px; margin: 0 auto; display: grid; gap: 10px; }
+    .faq-item { border: 1px solid var(--line); border-radius: 14px; background: rgba(17,27,46,.54); overflow: hidden; }
+    .faq-question { width: 100%; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 15px; color: var(--text); background: none; border: 0; text-align: left; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .faq-question span:last-child { color: var(--gold); font-size: 20px; transition: transform .2s; }
+    .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s; }
+    .faq-answer > div { overflow: hidden; }
+    .faq-answer p { margin: 0; padding: 0 20px 18px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+    .faq-item.open .faq-question span:last-child { transform: rotate(45deg); }
+    .final-cta { padding: 0 0 100px; }
+    .final-box { display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 34px 38px; border: 1px solid rgba(110,215,186,.19); border-radius: 20px; background: linear-gradient(100deg, rgba(35,105,97,.2), rgba(17,27,46,.7) 55%, rgba(116,87,48,.13)); }
+    .final-box h2 { margin: 0 0 7px; font-size: 25px; letter-spacing: -.8px; }
+    .final-box p { margin: 0; color: var(--muted); font-size: 12px; }
+    footer { border-top: 1px solid var(--line); padding: 31px 0; background: rgba(5,9,17,.55); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-copy { color: var(--muted-2); font-size: 10px; }
+    .footer-links { display: flex; align-items: center; gap: 20px; color: #aab6c9; font-size: 10px; }
+    .footer-links a:hover { color: var(--gold-2); }
+    .modal { position: fixed; inset: 0; z-index: 80; display: none; place-items: center; padding: 25px; background: rgba(2,5,11,.88); backdrop-filter: blur(12px); }
+    .modal.show { display: grid; }
+    .modal-inner { position: relative; width: min(1100px, 100%); }
+    .modal img { display: block; width: 100%; max-height: 82vh; object-fit: contain; border-radius: 12px; box-shadow: 0 30px 100px #000; }
+    .modal-close { position: absolute; top: -15px; right: -15px; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: white; background: #18243a; font-size: 20px; cursor: pointer; }
+    .toast { position: fixed; bottom: 22px; left: 50%; z-index: 90; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 12px 17px; border: 1px solid rgba(232,189,114,.25); border-radius: 12px; color: #f6e4c6; background: #172338; box-shadow: var(--shadow); font-size: 11px; transition: .25s; }
+    .toast.show { opacity: 1; transform: translate(-50%,0); }
+    @media (max-width: 980px) {
+      .nav-links { gap: 17px; }
+      .hero-grid { gap: 30px; }
+      .float-card.two { right: -4px; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .access-panel { gap: 25px; padding: 34px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 34px, var(--max)); }
+      .nav { height: 68px; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 22px 22px; background: rgba(8,13,24,.98); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+      .nav-actions .btn { display: none; }
+      .menu-toggle { display: grid; place-items: center; }
+      .brand { min-width: 0; }
+      .hero { padding: 20px 0 54px; }
+
+      .hero-grid { grid-template-columns: 1fr; gap: 42px; }
+      h1 { font-size: clamp(40px, 11vw, 58px); letter-spacing: -2.4px; }
+      .hero-copy { font-size: 14px; }
+      .hero-visual { max-width: 590px; margin: 0 auto; padding-left: 4px; }
+      .preview-shell { transform: none; }
+      .preview-image { max-height: 290px; }
+      .float-card.one { left: -2px; }
+      .float-card.two { right: -2px; top: 5px; }
+      .trust-inner { justify-content: flex-start; }
+      .trust-label { width: 100%; }
+      section { padding: 76px 0; }
+      .feature-grid { grid-template-columns: repeat(2,1fr); }
+      .feature-card { min-height: 205px; padding: 20px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .access-panel { grid-template-columns: 1fr; padding: 27px 22px; }
+      .final-box { align-items: flex-start; flex-direction: column; padding: 27px 23px; }
+      .final-box .btn { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .brand img { width: 38px; height: 38px; }
+      .brand-name strong { font-size: 17px; }
+      .brand-name span { font-size: 8px; letter-spacing: 1.5px; }
+      .hero-actions .btn { width: 100%; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature-card { min-height: 0; }
+      .gallery-grid { gap: 9px; }
+      .shot { padding: 5px; }
+      .shot-caption { padding: 8px 3px 3px; font-size: 9px; }
+      .shot-caption span:last-child { display: none; }
+      .float-card { padding: 9px 10px; gap: 7px; }
+      .float-card strong { font-size: 9px; }
+      .float-card small { font-size: 8px; }
+      .float-icon { width: 28px; height: 28px; }
+      .price strong { font-size: 43px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="LedgerOS home">
+        <img src="https://fistengine.github.io/ledger.png" alt="LedgerOS logo" />
+        <span class="brand-name"><strong>LedgerOS</strong><span>Intelligent Financial Management</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#features">Features</a><a href="#screenshots">Screenshots</a><a href="#how-it-works">How it works</a><a href="#access">Free access</a><a href="#faq">FAQs</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary" id="downloadNav" href="https://ia601900.us.archive.org/8/items/ledger-os-setup-4.1.0/ledgerOS%20Setup%204.1.0.exe">Download LedgerOS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <h1>Know your business.<br><span class="gradient-text">Own every number.</span></h1>
+          <p class="hero-copy">Meet LedgerOS — a central workspace for the records that keep your business moving. Organise inventory, sales, purchases, expenses, customers and suppliers, then bring the picture together with clear business reports.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="downloadHero" href="https://ia601900.us.archive.org/8/items/ledger-os-setup-4.1.0/ledgerOS%20Setup%204.1.0.exe">Download LedgerOS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-outline" href="#screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 14 3-3 3 3 2-2 3 3"/></svg> Explore the interface</a>
+          </div>
+          <div class="micro-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Currently free to use · Account setup through WhatsApp</div>
+        </div>
+        <div class="hero-visual">
+          <div class="glow"></div>
+          <div class="preview-shell">
+            <div class="preview-top"><i></i><i></i><i></i><span>LedgerOS workspace</span></div>
+            <img class="preview-image" src="https://static.vecteezy.com/system/resources/thumbnails/023/517/430/small_2x/inventory-management-digital-marketing-link-building-and-digital-marketing-banner-photo.jpg" alt="LedgerOS application interface preview" />
+          </div>
+          <div class="float-card one"><span class="float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5m0 14h17M8 15l3-4 3 2 5-7"/></svg></span><span><strong>Clear business records</strong><small>Keep your operations organised</small></span></div>
+          <div class="float-card two"><span class="float-icon mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v13H4zM8 7V4h8v3M8 12h8M8 16h5"/></svg></span><span><strong>One connected workspace</strong><small>Business activity in one place</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <span class="trust-label">Built to bring order to everyday operations</span>
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg> Centralised records</span>
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M6 7V4h12v3M5 7v13h14V7M9 11h6M9 15h6"/></svg> Inventory & transactions</span>
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7"/></svg> Business insights</span>
+      </div>
+    </div>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head"><span class="kicker">One system. A clearer picture.</span><h2>Everything important,<br><span class="gradient-text">within reach.</span></h2><p>LedgerOS brings essential business records into one organised environment, helping you spend less time searching through scattered information and more time making informed decisions.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5Z"/><path d="M3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></svg></div><h3>Inventory & Stock Ledger</h3><p>Keep product records and stock movements organised. Get a clearer view of what is coming in, going out and held in inventory.</p></article>
+          <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM8 8h8M8 12h5M8 16h8"/></svg></div><h3>Sales & Invoices</h3><p>Record sales activity and maintain invoice details in one place, with a consistent record of business transactions.</p></article>
+          <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16l-1.5 13h-13L4 7Z"/><path d="M8 7a4 4 0 0 1 8 0M8 12h8"/></svg></div><h3>Purchases</h3><p>Track purchase records alongside your inventory and other business activity for better day-to-day organisation.</p></article>
+          <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M17 7.5c0-1.7-2.2-3-5-3S7 5.8 7 7.5s2.2 3 5 3 5 1.3 5 3-2.2 3-5 3-5-1.3-5-3"/></svg></div><h3>Expense Management</h3><p>Record business expenses and keep a traceable view of outgoing costs, including archived expense records.</p></article>
+          <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h3a4.5 4.5 0 0 1 4.5 4.5V20M16 5.5a3 3 0 0 1 0 5.8M18 14.5a4.5 4.5 0 0 1 3 4.2V20"/></svg></div><h3>Customers & Suppliers</h3><p>Maintain important customer and supplier information so the people behind your transactions stay connected to your records.</p></article>
+          <article class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h17M8 15l3-4 3 2 5-7"/><path d="M16 6h3v3"/></svg></div><h3>Reports & Business Worth</h3><p>Bring operational and financial information together with reports, transaction history and a view of business worth.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screens-section" id="screenshots">
+      <div class="container">
+        <div class="section-head"><span class="kicker">A look inside LedgerOS</span><h2>See the workspace<br><span class="gradient-text">before you begin.</span></h2><p>Explore the LedgerOS interface through the actual product screenshots. Select any image to view it in a larger format.</p></div>
+        <div class="gallery-grid">
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss1.png" aria-label="View LedgerOS screenshot 1"><img loading="lazy" src="https://fistengine.github.io/ledgerss1.png" alt="LedgerOS screenshot 1"/><span class="shot-caption"><span>LedgerOS interface</span><span>01 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss2.png" aria-label="View LedgerOS screenshot 2"><img loading="lazy" src="https://fistengine.github.io/ledgerss2.png" alt="LedgerOS screenshot 2"/><span class="shot-caption"><span>LedgerOS interface</span><span>02 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss3.png" aria-label="View LedgerOS screenshot 3"><img loading="lazy" src="https://fistengine.github.io/ledgerss3.png" alt="LedgerOS screenshot 3"/><span class="shot-caption"><span>LedgerOS interface</span><span>03 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss4.png" aria-label="View LedgerOS screenshot 4"><img loading="lazy" src="https://fistengine.github.io/ledgerss4.png" alt="LedgerOS screenshot 4"/><span class="shot-caption"><span>LedgerOS interface</span><span>04 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss5.png" aria-label="View LedgerOS screenshot 5"><img loading="lazy" src="https://fistengine.github.io/ledgerss5.png" alt="LedgerOS screenshot 5"/><span class="shot-caption"><span>LedgerOS interface</span><span>05 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss6.png" aria-label="View LedgerOS screenshot 6"><img loading="lazy" src="https://fistengine.github.io/ledgerss6.png" alt="LedgerOS screenshot 6"/><span class="shot-caption"><span>LedgerOS interface</span><span>06 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss7.png" aria-label="View LedgerOS screenshot 7"><img loading="lazy" src="https://fistengine.github.io/ledgerss7.png" alt="LedgerOS screenshot 7"/><span class="shot-caption"><span>LedgerOS interface</span><span>07 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss8.png" aria-label="View LedgerOS screenshot 8"><img loading="lazy" src="https://fistengine.github.io/ledgerss8.png" alt="LedgerOS screenshot 8"/><span class="shot-caption"><span>LedgerOS interface</span><span>08 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss9.png" aria-label="View LedgerOS screenshot 9"><img loading="lazy" src="https://fistengine.github.io/ledgerss9.png" alt="LedgerOS screenshot 9"/><span class="shot-caption"><span>LedgerOS interface</span><span>09 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss10.png" aria-label="View LedgerOS screenshot 10"><img loading="lazy" src="https://fistengine.github.io/ledgerss10.png" alt="LedgerOS screenshot 10"/><span class="shot-caption"><span>LedgerOS interface</span><span>10 / 11 ↗</span></span></button>
+          <button class="shot" data-image="https://fistengine.github.io/ledgerss11.png" aria-label="View LedgerOS screenshot 11"><img loading="lazy" src="https://fistengine.github.io/ledgerss11.png" alt="LedgerOS screenshot 11"/><span class="shot-caption"><span>LedgerOS interface</span><span>11 / 11 ↗</span></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-head"><span class="kicker">Getting started is straightforward</span><h2>Your workspace, in <span class="gradient-text">three steps.</span></h2><p>LedgerOS access is currently arranged directly so your company workspace and login credentials can be prepared for you.</p></div>
+        <div class="steps-grid">
+          <article class="step"><h3>Message us</h3><p>Contact LedgerOS on WhatsApp and tell us that you would like to try the platform. We can answer your questions and guide you through the setup.</p></article>
+          <article class="step"><h3>Get your account</h3><p>Your company workspace is created and your sign-in credentials are shared with you directly.</p></article>
+          <article class="step"><h3>Start using LedgerOS</h3><p>Sign in and begin organising your business records in your own workspace. A one-month demo can be arranged on request.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="access-section" id="access">
+      <div class="container">
+        <div class="access-panel">
+          <div class="access-copy">
+            <span class="kicker">Start with confidence</span>
+            <h2>Try LedgerOS.<br><span class="gradient-text">See the difference.</span></h2>
+            <p>Get in touch to request a one-month demo and have your LedgerOS account created. You will receive your login credentials directly, along with guidance to get started.</p>
+            <div class="access-points">
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> One-month demo available on request</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Personal account and credential setup</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> No payment required at present</div>
+            </div>
+            <a class="btn btn-primary" href="https://wa.me/923001433484?text=Hello%2C%20I%27m%20interested%20in%20LedgerOS.%20I%27d%20like%20to%20request%20a%20one-month%20demo%20and%20get%20my%20account%20set%20up." target="_blank" rel="noopener">Request my one-month demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-top"><strong>Current access</strong><span class="free-badge">Free today</span></div>
+            <div class="price"><strong>FREE</strong><span>/ currently</span></div>
+            <div class="plan-caption">Current availability — no published subscription price</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> LedgerOS access is currently free</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> One-month demo can be requested</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Account setup handled directly</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> Future pricing, if introduced, will be announced</li>
+            </ul>
+            <a class="btn btn-outline" href="https://wa.me/923001433484?text=Hello%2C%20please%20tell%20me%20how%20to%20get%20free%20access%20to%20LedgerOS." target="_blank" rel="noopener">Talk to us on WhatsApp</a>
+            <p class="plan-note">No subscription payment is being collected on this page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head"><span class="kicker">Good to know</span><h2>Questions, <span class="gradient-text">answered.</span></h2><p>Some quick details about access, the demo and current availability.</p></div>
+        <div class="faq-grid">
+          <div class="faq-item open"><button class="faq-question" aria-expanded="true"><span>Is LedgerOS free right now?</span><span>+</span></button><div class="faq-answer"><div><p>Yes. LedgerOS is currently being offered free of charge. No subscription price has been set or published at this time. Any future pricing decision will be communicated separately.</p></div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How can I get the one-month demo?</span><span>+</span></button><div class="faq-answer"><div><p>Use any WhatsApp button on this page to contact us. Request a one-month demo, and we will guide you through account creation and share your login credentials.</p></div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How do I receive my login credentials?</span><span>+</span></button><div class="faq-answer"><div><p>Account setup is currently handled directly. After you contact us and provide the necessary account details, your credentials will be shared with you privately.</p></div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Is a subscription payment required?</span><span>+</span></button><div class="faq-answer"><div><p>No payment is required at present. LedgerOS is currently free to use. Subscription options and prices have not yet been announced.</p></div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Where is the download button?</span><span>+</span></button><div class="faq-answer"><div><p>Use the Download LedgerOS button to request the installation package and access details through WhatsApp. A direct download will be enabled on this page once the official installer link is added.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container final-cta">
+      <div class="final-box"><div><h2>Bring your business records into focus.</h2><p>Start your LedgerOS journey with free access and a one-month demo option.</p></div><a class="btn btn-primary" id="downloadFooter" href="https://ia601900.us.archive.org/8/items/ledger-os-setup-4.1.0/ledgerOS%20Setup%204.1.0.exe">Download LedgerOS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#home"><img src="https://fistengine.github.io/ledger.png" alt="LedgerOS logo"/><span class="brand-name"><strong>LedgerOS</strong><span>Intelligent Financial Management</span></span></a>
+      <span class="footer-copy">© <span id="year"></span> LedgerOS. All rights reserved.</span>
+      <div class="footer-links"><a href="#features">Features</a><a href="#screenshots">Screenshots</a><a href="#access">Get access</a><a href="https://wa.me/923001433484" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Expanded LedgerOS screenshot"><div class="modal-inner"><button class="modal-close" id="modalClose" aria-label="Close image">×</button><img id="modalImage" src="" alt="Expanded LedgerOS screenshot"/></div></div>
+  <div class="toast" id="toast" role="status">Opening WhatsApp to arrange your LedgerOS download.</div>
+
+  <script>
+    // Add the official installer URL here when it is ready, for example:
+    // const DOWNLOAD_URL = "https://your-domain.com/LedgerOS-Setup.exe";
+    // Leave it empty for now: the download buttons will guide visitors to WhatsApp.
+    const DOWNLOAD_URL = "https://ia601900.us.archive.org/8/items/ledger-os-setup-4.1.0/ledgerOS%20Setup%204.1.0.exe";
+    const WHATSAPP_DOWNLOAD = "https://wa.me/923001433484?text=Hello%2C%20I%27d%20like%20the%20LedgerOS%20download%20and%20access%20details.%20Please%20guide%20me.";
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.querySelectorAll('.faq-question').forEach(button => button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      const isOpen = item.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(isOpen));
+    }));
+
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    document.querySelectorAll('.shot').forEach(shot => shot.addEventListener('click', () => {
+      modalImage.src = shot.dataset.image; modal.classList.add('show'); document.body.style.overflow = 'hidden';
+    }));
+    function closeModal() { modal.classList.remove('show'); document.body.style.overflow = ''; modalImage.src = ''; }
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
+
+  </script>
+  <script>
+    // All download buttons share this handler. Add the official installer URL above when available.
+    ['downloadNav', 'downloadHero', 'downloadFooter'].forEach(id => {
+      const button = document.getElementById(id);
+      if (!button) return;
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        if (DOWNLOAD_URL.trim()) { window.location.href = DOWNLOAD_URL; return; }
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => { window.open(WHATSAPP_DOWNLOAD, '_blank', 'noopener'); toast.classList.remove('show'); }, 450);
+      });
+    });
+  </script>
+</body>
+</html>
